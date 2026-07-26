@@ -14,29 +14,38 @@
       <div class="eyebrow">12-Team &middot; Dynasty Keeper League</div>
       <h1>OG <span>League</span></h1>
     </div>
-    <div class="masthead-tag">Rules &middot; Draft Order &middot; Keepers &middot; History</div>
+    <div class="masthead-tag">Draft Order &middot; Rules &middot; Keepers &middot; History</div>
   </div>
 </header>
 
 <nav class="tabbar" role="tablist" aria-label="League sections">
-  <button class="tab-btn active" data-tab="rules" role="tab" aria-selected="true">Rules</button>
-  <button class="tab-btn" data-tab="season2026" role="tab" aria-selected="false">2026 Season</button>
+  <button class="tab-btn active" data-tab="season2026" role="tab" aria-selected="true">2026 Season</button>
+  <button class="tab-btn" data-tab="rules" role="tab" aria-selected="false">Rules</button>
   <button class="tab-btn" data-tab="history" role="tab" aria-selected="false">History</button>
   <button class="tab-btn" data-tab="trophy" role="tab" aria-selected="false">Trophy Room</button>
 </nav>
 
 <main>
 
-  <!-- RULES -->
-  <section id="panel-rules" class="panel-view active">
-    <div id="rules-content"></div>
+  <!-- 2026 SEASON -->
+  <section id="panel-season2026" class="panel-view active">
+    <h2 class="section-title">2026 Draft Order</h2>
+    <div class="note-box">Final draft order, 15 rounds &middot; 12 picks per round. Search or tap a manager below to highlight every pick they own.</div>
+
+    <div class="draft-search-bar">
+      <input type="text" id="draft-search" placeholder="Search a manager, e.g. Sagar...">
+    </div>
+    <div class="draft-search-chips" id="manager-chips"></div>
+    <div class="summary-line" id="draft-summary"></div>
+
+    <div class="draft-grid-wrap">
+      <table class="draft-grid" id="draft-grid"></table>
+    </div>
   </section>
 
-  <!-- 2026 SEASON -->
-  <section id="panel-season2026" class="panel-view">
-    <h2 class="section-title">2026 Draft Order</h2>
-    <div class="note-box">Final draft order, 15 rounds &middot; 12 picks per round. Tap a round to expand it.</div>
-    <div id="season2026-content"></div>
+  <!-- RULES -->
+  <section id="panel-rules" class="panel-view">
+    <div id="rules-content"></div>
   </section>
 
   <!-- HISTORY -->

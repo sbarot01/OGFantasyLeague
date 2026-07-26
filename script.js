@@ -60,32 +60,93 @@ function renderRules(rules) {
   wrap.appendChild(el('div', { class: 'card' }, renderList(rules.tradeRules.items)));
 }
 
+// ---------- 2026 Draft grid + search ----------
+let allPicks = []; // flat list: { round, pick, manager }
+
 function renderSeason2026(picksData) {
-  const wrap = document.getElementById('season2026-content');
-  wrap.innerHTML = '';
-  picksData.draftOrder.forEach((round, idx) => {
-    const strip = el('div', { class: 'round-strip' + (idx === 0 ? ' open' : '') });
-    const head = el('div', { class: 'round-head' },
-      el('span', { class: 'round-badge' }, 'ROUND ' + round.round),
-      el('span', { class: 'round-head-label' }, round.picks[0] + ' \u2192 ' + round.picks[round.picks.length - 1]),
-      el('span', { class: 'round-caret' }, '\u25B6')
-    );
-    head.addEventListener('click', () => strip.classList.toggle('open'));
+  const table = document.getElementById('draft-grid');
+  table.innerHTML = '';
+  allPicks = [];
 
-    const row = el('div', { class: 'pick-row' });
+  const thead = el('thead');
+  const headRow = el('tr');
+  headRow.appendChild(el('th', {}, 'Rd'));
+  for (let p = 1; p <= 12; p++) headRow.appendChild(el('th', {}, 'Pick ' + p));
+  thead.appendChild(headRow);
+  table.appendChild(thead);
+
+  const tbody = el('tbody');
+  picksData.draftOrder.forEach(round => {
+    const row = el('tr');
+    row.appendChild(el('td', {}, String(round.round)));
     round.picks.forEach((manager, i) => {
-      row.appendChild(el('span', { class: 'pick-chip' },
-        el('span', { class: 'pick-num' }, round.round + '.' + String(i + 1).padStart(2, '0')),
-        manager
-      ));
+      allPicks.push({ round: round.round, pick: i + 1, manager });
+      const cell = el('td', {
+        class: 'pick-cell',
+        'data-manager': manager.toLowerCase(),
+        title: round.round + '.' + String(i + 1).padStart(2, '0') + ' — ' + manager
+      }, manager);
+      row.appendChild(cell);
     });
-
-    strip.appendChild(head);
-    strip.appendChild(row);
-    wrap.appendChild(strip);
+    tbody.appendChild(row);
   });
+  table.appendChild(tbody);
+
+  // Build manager quick-filter chips (unique, in league roster order)
+  const chipWrap = document.getElementById('manager-chips');
+  chipWrap.innerHTML = '';
+  const uniqueManagers = [...new Set(allPicks.map(p => p.manager))].sort();
+  uniqueManagers.forEach(m => {
+    const chip = el('button', { class: 'manager-chip', type: 'button', 'data-manager': m }, m);
+    chip.addEventListener('click', () => {
+      const input = document.getElementById('draft-search');
+      input.value = (input.value.toLowerCase() === m.toLowerCase()) ? '' : m;
+      applyDraftFilter(input.value);
+    });
+    chipWrap.appendChild(chip);
+  });
+
+  applyDraftFilter('');
 }
 
+function applyDraftFilter(rawTerm) {
+  const term = rawTerm.trim().toLowerCase();
+  const table = document.getElementById('draft-grid');
+  const summary = document.getElementById('draft-summary');
+  const cells = table.querySelectorAll('td.pick-cell');
+  const chips = document.querySelectorAll('.manager-chip');
+
+  chips.forEach(c => c.classList.toggle('active', c.dataset.manager.toLowerCase() === term));
+
+  if (!term) {
+    table.classList.remove('filtering');
+    cells.forEach(c => c.classList.remove('match'));
+    summary.textContent = '';
+    return;
+  }
+
+  table.classList.add('filtering');
+  let matchCount = 0;
+  cells.forEach(c => {
+    const isMatch = c.dataset.manager.includes(term);
+    c.classList.toggle('match', isMatch);
+    if (isMatch) matchCount++;
+  });
+
+  const exact = allPicks.filter(p => p.manager.toLowerCase() === term);
+  if (exact.length) {
+    const list = exact.map(p => p.round + '.' + String(p.pick).padStart(2, '0')).join(', ');
+    summary.textContent = exact[0].manager + ' — ' + exact.length + ' picks: ' + list;
+  } else if (matchCount) {
+    summary.textContent = matchCount + ' picks match "' + rawTerm.trim() + '"';
+  } else {
+    summary.textContent = 'No picks match "' + rawTerm.trim() + '"';
+  }
+}
+
+document.getElementById('draft-search').addEventListener('input', (e) => applyDraftFilter(e.target.value));
+
+// ---------- History: draft order ----------
 function renderHistoryDraftOrder(history) {
   document.getElementById('draftorder-note').textContent = history.note;
   const list = document.getElementById('draftorder-list');
@@ -140,8 +201,8 @@ function renderKeepers(keepers) {
 fetch('data.json')
   .then(res => res.json())
   .then(data => {
-    renderRules(data.rules);
     renderSeason2026(data.season2026);
+    renderRules(data.rules);
     renderHistoryDraftOrder(data.history2025);
     renderPickCount(data.history2025.pickCount);
     renderKeepers(data.history2025.keepers);
