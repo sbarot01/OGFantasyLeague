@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OG League — Rules, Draft & History</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="masthead">
+  <div class="masthead-inner">
+    <div>
+      <div class="eyebrow">12-Team &middot; Dynasty Keeper League</div>
+      <h1>OG <span>League</span></h1>
+    </div>
+    <div class="masthead-tag">Rules &middot; Draft Order &middot; Keepers &middot; History</div>
+  </div>
+</header>
+
+<nav class="tabbar" role="tablist" aria-label="League sections">
+  <button class="tab-btn active" data-tab="rules" role="tab" aria-selected="true">Rules</button>
+  <button class="tab-btn" data-tab="season2026" role="tab" aria-selected="false">2026 Season</button>
+  <button class="tab-btn" data-tab="history" role="tab" aria-selected="false">History</button>
+  <button class="tab-btn" data-tab="trophy" role="tab" aria-selected="false">Trophy Room</button>
+</nav>
+
+<main>
+
+  <!-- RULES -->
+  <section id="panel-rules" class="panel-view active">
+    <div id="rules-content"></div>
+  </section>
+
+  <!-- 2026 SEASON -->
+  <section id="panel-season2026" class="panel-view">
+    <h2 class="section-title">2026 Draft Order</h2>
+    <div class="note-box">Final draft order, 15 rounds &middot; 12 picks per round. Tap a round to expand it.</div>
+    <div id="season2026-content"></div>
+  </section>
+
+  <!-- HISTORY -->
+  <section id="panel-history" class="panel-view">
+    <h2 class="section-title">League History</h2>
+    <div class="subtabbar">
+      <button class="subtab-btn active" data-subtab="hist-draftorder">2025 Draft Order</button>
+      <button class="subtab-btn" data-subtab="hist-pickcount">2025 Pick Count</button>
+      <button class="subtab-btn" data-subtab="hist-keepers">2024 Keepers</button>
+    </div>
+
+    <div id="hist-draftorder" class="subpanel active">
+      <div class="note-box" id="draftorder-note"></div>
+      <div class="order-list" id="draftorder-list"></div>
+    </div>
+
+    <div id="hist-pickcount" class="subpanel">
+      <div class="note-box" id="pickcount-note"></div>
+      <div class="table-wrap">
+        <table class="pickcount" id="pickcount-table"></table>
+      </div>
+    </div>
+
+    <div id="hist-keepers" class="subpanel">
+      <div class="keeper-grid" id="keepers-grid"></div>
+    </div>
+  </section>
+
+  <!-- TROPHY ROOM -->
+  <section id="panel-trophy" class="panel-view">
+    <div class="construction">
+      <div class="emoji-row">🚧🏗️🚧</div>
+      <h3>Under Construction</h3>
+      <p>The Trophy Room, Last Place Wall of Shame, and Historical Performance archives are coming soon. Check back once the excavators clear out.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer>OG LEAGUE &middot; built from a pile of Apple Notes and a torn sticky-note draft order</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

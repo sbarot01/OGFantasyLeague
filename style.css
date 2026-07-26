@@ -1,0 +1,476 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+:root {
+  --bg: #0b0f14;
+  --bg-alt: #0e141b;
+  --panel: #121a23;
+  --panel-alt: #1a2430;
+  --border: #253140;
+  --text: #edf1f5;
+  --text-dim: #8d99a8;
+  --text-faint: #5b6675;
+  --gold: #e8a33d;
+  --gold-dim: #a97a34;
+  --teal: #2fb6b2;
+  --red: #e2574c;
+  --radius: 10px;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(1200px 600px at 15% -10%, rgba(232,163,61,0.08), transparent 60%),
+    radial-gradient(900px 500px at 100% 0%, rgba(47,182,178,0.06), transparent 55%),
+    var(--bg);
+  color: var(--text);
+  font-family: 'Inter', system-ui, sans-serif;
+  line-height: 1.55;
+  min-height: 100vh;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+}
+
+a { color: var(--teal); }
+
+/* ---------- Masthead ---------- */
+.masthead {
+  border-bottom: 1px solid var(--border);
+  padding: 28px 24px 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.masthead::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(135deg, rgba(232,163,61,0.035) 0 2px, transparent 2px 14px);
+  pointer-events: none;
+}
+
+.masthead-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.eyebrow {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.masthead h1 {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  font-size: clamp(32px, 6vw, 52px);
+  margin: 2px 0 0;
+  color: var(--text);
+}
+
+.masthead h1 span {
+  color: var(--gold);
+}
+
+.masthead-tag {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px;
+  color: var(--text-faint);
+}
+
+/* ---------- Tabs ---------- */
+.tabbar {
+  max-width: 1080px;
+  margin: 22px auto 0;
+  padding: 0 24px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.tab-btn {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  font-size: 14px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  color: var(--text-dim);
+  padding: 10px 18px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s, background 0.15s;
+}
+
+.tab-btn:hover { color: var(--text); border-color: var(--gold-dim); }
+
+.tab-btn.active {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: #14100a;
+}
+
+.tab-btn:focus-visible, .subtab-btn:focus-visible, button:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 2px;
+}
+
+/* ---------- Main content ---------- */
+main {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 32px 24px 80px;
+}
+
+.panel-view { display: none; animation: fade 0.25s ease; }
+.panel-view.active { display: block; }
+
+@keyframes fade {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.section-title {
+  font-family: 'Oswald', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  font-size: 22px;
+  font-weight: 600;
+  margin: 0 0 14px;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.section-title::before {
+  content: "";
+  width: 4px;
+  height: 20px;
+  background: var(--gold);
+  border-radius: 2px;
+  display: inline-block;
+}
+
+.card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 22px 24px;
+  margin-bottom: 20px;
+}
+
+.card ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.card li {
+  margin-bottom: 10px;
+  color: var(--text-dim);
+}
+
+.card li:last-child { margin-bottom: 0; }
+
+.card li::marker { color: var(--gold); }
+
+.note-box {
+  background: var(--panel-alt);
+  border-left: 3px solid var(--teal);
+  border-radius: 6px;
+  padding: 12px 16px;
+  font-size: 14px;
+  color: var(--text-dim);
+  margin-bottom: 20px;
+}
+
+/* ---------- Sub-tabs (History) ---------- */
+.subtabbar {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 22px;
+  flex-wrap: wrap;
+}
+
+.subtab-btn {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px;
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-dim);
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.subtab-btn:hover { border-color: var(--teal); color: var(--text); }
+
+.subtab-btn.active {
+  border-color: var(--teal);
+  color: var(--teal);
+  background: rgba(47,182,178,0.08);
+}
+
+.subpanel { display: none; }
+.subpanel.active { display: block; animation: fade 0.2s ease; }
+
+/* ---------- Draft ticker (signature element) ---------- */
+.round-strip {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  margin-bottom: 10px;
+  overflow: hidden;
+  background: var(--panel);
+}
+
+.round-head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 16px;
+  cursor: pointer;
+  user-select: none;
+  background: var(--panel-alt);
+}
+
+.round-badge {
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 600;
+  font-size: 13px;
+  color: #14100a;
+  background: var(--gold);
+  border-radius: 5px;
+  padding: 3px 9px;
+  white-space: nowrap;
+}
+
+.round-head-label {
+  font-family: 'Oswald', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: 14px;
+  color: var(--text-dim);
+  flex: 1;
+}
+
+.round-caret {
+  color: var(--text-faint);
+  transition: transform 0.2s;
+  font-size: 12px;
+}
+
+.round-strip.open .round-caret { transform: rotate(90deg); color: var(--gold); }
+
+.pick-row {
+  display: none;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 14px 16px 16px;
+}
+
+.round-strip.open .pick-row { display: flex; }
+
+.pick-chip {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px;
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 6px 10px;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+.pick-num {
+  color: var(--gold);
+  font-weight: 600;
+}
+
+/* ---------- Draft order simple list (2025 History) ---------- */
+.order-list {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.order-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 13px 18px;
+  background: var(--panel);
+  border-bottom: 1px solid var(--border);
+}
+
+.order-row:last-child { border-bottom: none; }
+.order-row:nth-child(even) { background: var(--panel-alt); }
+
+.order-pos {
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 600;
+  color: var(--gold);
+  width: 28px;
+  flex-shrink: 0;
+}
+
+.order-name {
+  font-weight: 600;
+  color: var(--text);
+}
+
+.order-note {
+  font-size: 12px;
+  color: var(--text-faint);
+  font-style: italic;
+}
+
+/* ---------- Pick count table ---------- */
+.table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+table.pickcount {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 780px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px;
+}
+
+table.pickcount th, table.pickcount td {
+  padding: 9px 10px;
+  text-align: center;
+  border-bottom: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+}
+
+table.pickcount th:first-child, table.pickcount td:first-child {
+  text-align: left;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  position: sticky;
+  left: 0;
+  background: var(--panel);
+  min-width: 190px;
+}
+
+table.pickcount thead th {
+  background: var(--panel-alt);
+  color: var(--gold);
+  font-weight: 600;
+}
+
+table.pickcount tbody tr:nth-child(even) td { background: var(--panel-alt); }
+table.pickcount tbody tr:nth-child(even) td:first-child { background: var(--panel-alt); }
+table.pickcount tbody tr:nth-child(odd) td:first-child { background: var(--panel); }
+
+table.pickcount td { color: var(--text-dim); }
+
+/* ---------- Keepers ---------- */
+.keeper-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 14px;
+}
+
+.keeper-card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+}
+
+.keeper-card h4 {
+  margin: 0 0 8px;
+  font-family: 'Oswald', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  font-size: 15px;
+  color: var(--teal);
+}
+
+.keeper-card ul {
+  margin: 0;
+  padding-left: 18px;
+  color: var(--text-dim);
+  font-size: 14px;
+}
+
+.keeper-card .none {
+  color: var(--text-faint);
+  font-style: italic;
+  font-size: 13px;
+}
+
+/* ---------- Under construction ---------- */
+.construction {
+  text-align: center;
+  padding: 70px 20px;
+  border: 2px dashed var(--gold-dim);
+  border-radius: var(--radius);
+  background: repeating-linear-gradient(135deg, rgba(232,163,61,0.05) 0 12px, rgba(232,163,61,0.09) 12px 24px);
+}
+
+.construction .emoji-row {
+  font-size: 42px;
+  margin-bottom: 18px;
+  letter-spacing: 10px;
+}
+
+.construction h3 {
+  font-family: 'Oswald', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: 24px;
+  margin: 0 0 8px;
+  color: var(--gold);
+}
+
+.construction p {
+  color: var(--text-dim);
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+/* ---------- Footer ---------- */
+footer {
+  text-align: center;
+  padding: 24px;
+  color: var(--text-faint);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  border-top: 1px solid var(--border);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 640px) {
+  .masthead { padding: 22px 16px 16px; }
+  main { padding: 24px 16px 60px; }
+  .tabbar { padding: 0 16px; }
+  .card { padding: 18px; }
+  .order-row { padding: 11px 14px; gap: 12px; }
+}

@@ -1,0 +1,137 @@
+{
+  "league": {
+    "name": "OG League",
+    "managers": ["Sagar", "Devon", "Vishal", "Kishan", "Daanyal", "Andrew", "Will", "Phil", "Josh", "Kaleb", "Shyam", "Fletch"]
+  },
+
+  "rules": {
+    "buyIn": {
+      "title": "Buy-In & Payouts",
+      "items": [
+        "$125 buy-in x 12 managers = $1,500 total pot",
+        "$1,220 paid out for 1st ($820), 2nd ($300), and 3rd ($100)",
+        "$20 x 14 weeks = $280 (weekly pot, separate from the season-long payout)"
+      ]
+    },
+    "keeperRules": {
+      "title": "Keeper Rules",
+      "items": [
+        "Keepers are optional",
+        "You can keep up to 2 players, for up to 2 extra seasons each",
+        "To keep a player for 1 year — forfeit the draft pick one round earlier than where you drafted them",
+        "To keep that same player for another year — forfeit the draft pick two rounds earlier than where you drafted them",
+        "Example: keep a 2024 5th-round pick for 1 extra season → forfeit your 2025 4th-round pick",
+        "Example: keep that same player again → forfeit your 2026 3rd-round pick the following offseason",
+        "Can't keep 1st or 2nd round players",
+        "Next year's draft order is always random",
+        "To keep a waiver pickup, you give up a round 8 pick — unless they were drafted, in which case their original draft position sets the keeper cost",
+        "To keep a player you traded for, you forfeit the pick they were originally drafted at",
+        "Playoff teams cannot keep any waiver-wire player claimed after the regular season ends",
+        "Consolation bracket teams can only pick up free agents and should not submit waiver claims",
+        "If you trade away the pick required to keep a player, you must give up the next best pick instead"
+      ]
+    },
+    "keeperSteps": {
+      "title": "How to Select Keepers",
+      "deadlineNote": "Deadline: Sunday, August 17th. If your sleeper is injured during the final week of the preseason, you can swap them for another player or decline to claim a sleeper.",
+      "steps": [
+        "Step 1: Tap \"League Announcements\"",
+        "Step 2: Tap \"Select Keepers\""
+      ]
+    },
+    "tradeRules": {
+      "title": "Trade Rules",
+      "items": [
+        "Any trade involving draft picks must include a pick from the same draft in return — e.g. if you receive a 3rd-round pick, send back at least a 15th-round pick, so every team's roster count stays even",
+        "Picks can only be traded up to 2 years in advance (this carries the risk of not knowing the random draft order for that 2nd year)",
+        "No veto on preseason trades",
+        "Trade deadline is the end of the regular season",
+        "Every in-season trade is held to a veto vote"
+      ]
+    }
+  },
+
+  "history2025": {
+    "note": "Data from the 2025 season, migrated from the league's Apple Notes.",
+    "draftOrder": [
+      { "pick": 1, "manager": "Vishal" },
+      { "pick": 2, "manager": "Phil" },
+      { "pick": 3, "manager": "Daanyal" },
+      { "pick": 4, "manager": "Shyam" },
+      { "pick": 5, "manager": "Sagar" },
+      { "pick": 6, "manager": "Kishan" },
+      { "pick": 7, "manager": "Andrew" },
+      { "pick": 8, "manager": "Devon", "note": "Inferred by elimination from the source photo — flag to Sagar if wrong" },
+      { "pick": 9, "manager": "Josh" },
+      { "pick": 10, "manager": "Pea", "note": "Later left the league; replaced by Kaleb" },
+      { "pick": 11, "manager": "Fletch" },
+      { "pick": 12, "manager": "Will" }
+    ],
+    "pickCount": {
+      "note": "Number of picks each team owned per round after trades. Team names as recorded in the original league grid — these don't match current team names and no manager mapping was available.",
+      "rounds": 15,
+      "teams": [
+        { "team": "Nico Sauve",                    "picks": [1,1,1,0,1,1,1,1,1,0,1,1,2,1,2] },
+        { "team": "5Skiii",                        "picks": [2,2,1,1,1,1,1,1,1,2,1,1,0,0,0] },
+        { "team": "DARNOLD TRUMP 2024",             "picks": [0,1,1,1,1,1,1,1,1,1,1,1,1,1,2] },
+        { "team": "Smooky Boi",                    "picks": [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1] },
+        { "team": "Dobbins Nabers and Assoc.",      "picks": [1,0,0,0,1,1,1,1,1,1,1,1,1,1,4] },
+        { "team": "GGB",                           "picks": [1,1,1,0,1,1,1,1,0,1,1,1,1,2,2] },
+        { "team": "Lambos and McLaurins",           "picks": [1,1,1,0,1,1,1,1,1,1,0,1,2,2,1] },
+        { "team": "Leh Gett It",                   "picks": [1,1,1,2,1,1,1,1,1,1,1,1,1,1,0] },
+        { "team": "Love to Bake",                  "picks": [1,1,1,2,1,1,1,1,2,1,2,1,0,0,0] },
+        { "team": "NFL Young Boi",                 "picks": [1,2,1,1,1,1,1,1,1,1,1,1,1,1,0] },
+        { "team": "WHATCANBROWNDO4U",              "picks": [1,0,1,2,1,1,1,1,1,1,1,1,1,2,0] },
+        { "team": "(unnamed team)",                "picks": [1,1,2,2,1,1,1,1,1,1,1,1,1,0,0] }
+      ]
+    },
+    "keepers": [
+      { "manager": "Sagar",   "players": ["Brian Thomas Jr."] },
+      { "manager": "Will",    "players": ["Jayden Daniels", "Bucky Irving"] },
+      { "manager": "Josh",    "players": ["Adam Thielen", "Xavier Worthy"] },
+      { "manager": "Kaleb",   "players": [] },
+      { "manager": "Phil",    "players": [] },
+      { "manager": "Kishan",  "players": ["Tee Higgins", "Chuba Hubbard"] },
+      { "manager": "Shyam",   "players": ["Chase Brown", "JSN"] },
+      { "manager": "Devon",   "players": ["Joe Burrow"] },
+      { "manager": "Fletch",  "players": ["Jerry Jeudy", "Brock Bowers"] },
+      { "manager": "Vishal",  "players": ["Brock Purdy"] },
+      { "manager": "Andrew",  "players": ["Jameson Williams"] },
+      { "manager": "Daanyal", "players": ["Ladd McConkey", "Jordan Mason"] }
+    ]
+  },
+
+  "season2026": {
+    "teamToManager": {
+      "No Church in the Wild": "Sagar",
+      "I \ud83e\udda1 white slots": "Will",
+      "Imma Ride For My Muhfuckin Nix": "Josh",
+      "Smooky": "Kaleb",
+      "DickerTillSheWaddle": "Phil",
+      "GGB": "Kishan",
+      "The Najee Regime": "Shyam",
+      "Get\u2b07\ufe0f/lay\u2b07\ufe0f. OnceULay\u2b07\ufe0fUStay\u2b07\ufe0f": "Devon",
+      "Love to Bake": "Fletch",
+      "Whoootie-dhooo": "Vishal",
+      "WHATCANBROWNDO4U": "Andrew",
+      "\ud83d\uddd1\ufe0f": "Daanyal"
+    },
+    "draftOrder": [
+      { "round": 1,  "picks": ["Sagar","Fletch","Kaleb","Vishal","Will","Daanyal","Devon","Kishan","Josh","Phil","Andrew","Shyam"] },
+      { "round": 2,  "picks": ["Shyam","Andrew","Phil","Josh","Kishan","Devon","Devon","Will","Vishal","Vishal","Fletch","Sagar"] },
+      { "round": 3,  "picks": ["Sagar","Kishan","Kaleb","Vishal","Will","Sagar","Devon","Kishan","Josh","Andrew","Andrew","Shyam"] },
+      { "round": 4,  "picks": ["Shyam","Andrew","Kishan","Josh","Kishan","Devon","Daanyal","Will","Vishal","Vishal","Sagar","Sagar"] },
+      { "round": 5,  "picks": ["Sagar","Andrew","Kaleb","Vishal","Will","Daanyal","Devon","Kishan","Josh","Phil","Andrew","Shyam"] },
+      { "round": 6,  "picks": ["Shyam","Andrew","Phil","Sagar","Kishan","Devon","Daanyal","Will","Vishal","Kaleb","Fletch","Sagar"] },
+      { "round": 7,  "picks": ["Sagar","Andrew","Kaleb","Vishal","Will","Daanyal","Devon","Kishan","Josh","Phil","Andrew","Shyam"] },
+      { "round": 8,  "picks": ["Shyam","Fletch","Phil","Josh","Kishan","Devon","Daanyal","Will","Vishal","Kaleb","Fletch","Fletch"] },
+      { "round": 9,  "picks": ["Sagar","Fletch","Kaleb","Vishal","Will","Daanyal","Devon","Kishan","Josh","Phil","Fletch","Shyam"] },
+      { "round": 10, "picks": ["Shyam","Andrew","Phil","Josh","Kishan","Devon","Daanyal","Will","Vishal","Kaleb","Fletch","Sagar"] },
+      { "round": 11, "picks": ["Sagar","Fletch","Kaleb","Vishal","Will","Daanyal","Devon","Kishan","Josh","Phil","Andrew","Shyam"] },
+      { "round": 12, "picks": ["Shyam","Andrew","Phil","Josh","Kishan","Devon","Daanyal","Will","Vishal","Kaleb","Fletch","Sagar"] },
+      { "round": 13, "picks": ["Sagar","Fletch","Kaleb","Vishal","Will","Daanyal","Devon","Kishan","Josh","Phil","Andrew","Shyam"] },
+      { "round": 14, "picks": ["Shyam","Andrew","Phil","Josh","Fletch","Devon","Daanyal","Will","Kaleb","Kaleb","Fletch","Josh"] },
+      { "round": 15, "picks": ["Daanyal","Fletch","Kaleb","Kaleb","Will","Daanyal","Daanyal","Phil","Josh","Phil","Phil","Shyam"] }
+    ]
+  }
+}
