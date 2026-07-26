@@ -61,9 +61,9 @@
       { "pick": 5, "manager": "Sagar" },
       { "pick": 6, "manager": "Kishan" },
       { "pick": 7, "manager": "Andrew" },
-      { "pick": 8, "manager": "Devon", "note": "Inferred by elimination from the source photo — flag to Sagar if wrong" },
+      { "pick": 8, "manager": "Devon" },
       { "pick": 9, "manager": "Josh" },
-      { "pick": 10, "manager": "Pea", "note": "Later left the league; replaced by Kaleb" },
+      { "pick": 10, "manager": "Kaleb" },
       { "pick": 11, "manager": "Fletch" },
       { "pick": 12, "manager": "Will" }
     ],
@@ -82,7 +82,7 @@
         { "team": "Love to Bake",                  "picks": [1,1,1,2,1,1,1,1,2,1,2,1,0,0,0] },
         { "team": "NFL Young Boi",                 "picks": [1,2,1,1,1,1,1,1,1,1,1,1,1,1,0] },
         { "team": "WHATCANBROWNDO4U",              "picks": [1,0,1,2,1,1,1,1,1,1,1,1,1,2,0] },
-        { "team": "(unnamed team)",                "picks": [1,1,2,2,1,1,1,1,1,1,1,1,1,0,0] }
+        { "team": "Egg",                           "picks": [1,1,2,2,1,1,1,1,1,1,1,1,1,0,0] }
       ]
     },
     "keepers": [
