@@ -64,35 +64,32 @@ function renderRules(rules) {
 let allPicks = []; // flat list: { round, pick, manager }
 
 function renderSeason2026(picksData) {
-  const table = document.getElementById('draft-grid');
-  table.innerHTML = '';
+  const wrap = document.getElementById('draft-rounds');
+  wrap.innerHTML = '';
   allPicks = [];
 
-  const thead = el('thead');
-  const headRow = el('tr');
-  headRow.appendChild(el('th', {}, 'Rd'));
-  for (let p = 1; p <= 12; p++) headRow.appendChild(el('th', {}, 'Pick ' + p));
-  thead.appendChild(headRow);
-  table.appendChild(thead);
-
-  const tbody = el('tbody');
   picksData.draftOrder.forEach(round => {
-    const row = el('tr');
-    row.appendChild(el('td', {}, String(round.round)));
+    const card = el('div', { class: 'round-card' });
+    card.appendChild(el('div', { class: 'round-card-head' },
+      el('span', { class: 'round-badge' }, 'ROUND ' + round.round),
+      el('span', { class: 'round-card-meta' }, round.picks.length + ' picks')
+    ));
+
+    const grid = el('div', { class: 'pick-grid' });
     round.picks.forEach((manager, i) => {
       allPicks.push({ round: round.round, pick: i + 1, manager });
-      const cell = el('td', {
+      grid.appendChild(el('div', {
         class: 'pick-cell',
-        'data-manager': manager.toLowerCase(),
-        title: round.round + '.' + String(i + 1).padStart(2, '0') + ' — ' + manager
-      }, manager);
-      row.appendChild(cell);
+        'data-manager': manager.toLowerCase()
+      },
+        el('span', { class: 'pick-slot' }, round.round + '.' + String(i + 1).padStart(2, '0')),
+        el('span', { class: 'pick-manager' }, manager)
+      ));
     });
-    tbody.appendChild(row);
+    card.appendChild(grid);
+    wrap.appendChild(card);
   });
-  table.appendChild(tbody);
 
-  // Build manager quick-filter chips (unique, in league roster order)
   const chipWrap = document.getElementById('manager-chips');
   chipWrap.innerHTML = '';
   const uniqueManagers = [...new Set(allPicks.map(p => p.manager))].sort();
@@ -100,7 +97,7 @@ function renderSeason2026(picksData) {
     const chip = el('button', { class: 'manager-chip', type: 'button', 'data-manager': m }, m);
     chip.addEventListener('click', () => {
       const input = document.getElementById('draft-search');
-      input.value = (input.value.toLowerCase() === m.toLowerCase()) ? '' : m;
+      input.value = (input.value.trim().toLowerCase() === m.toLowerCase()) ? '' : m;
       applyDraftFilter(input.value);
     });
     chipWrap.appendChild(chip);
@@ -111,21 +108,21 @@ function renderSeason2026(picksData) {
 
 function applyDraftFilter(rawTerm) {
   const term = rawTerm.trim().toLowerCase();
-  const table = document.getElementById('draft-grid');
+  const container = document.getElementById('draft-rounds');
   const summary = document.getElementById('draft-summary');
-  const cells = table.querySelectorAll('td.pick-cell');
+  const cells = container.querySelectorAll('.pick-cell');
   const chips = document.querySelectorAll('.manager-chip');
 
   chips.forEach(c => c.classList.toggle('active', c.dataset.manager.toLowerCase() === term));
 
   if (!term) {
-    table.classList.remove('filtering');
+    container.classList.remove('filtering');
     cells.forEach(c => c.classList.remove('match'));
     summary.textContent = '';
     return;
   }
 
-  table.classList.add('filtering');
+  container.classList.add('filtering');
   let matchCount = 0;
   cells.forEach(c => {
     const isMatch = c.dataset.manager.includes(term);
