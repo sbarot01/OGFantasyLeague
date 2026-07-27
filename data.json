@@ -1,137 +1,2434 @@
 {
-  "league": {
-    "name": "OG League",
-    "managers": ["Sagar", "Devon", "Vishal", "Kishan", "Daanyal", "Andrew", "Will", "Phil", "Josh", "Kaleb", "Shyam", "Fletch"]
+ "league": {
+  "name": "OG League",
+  "managers": [
+   "Sagar",
+   "Devon",
+   "Vishal",
+   "Kishan",
+   "Daanyal",
+   "Andrew",
+   "Will",
+   "Phil",
+   "Josh",
+   "Kaleb",
+   "Shyam",
+   "Fletch"
+  ]
+ },
+ "rules": {
+  "buyIn": {
+   "title": "Buy-In & Payouts",
+   "items": [
+    "$125 buy-in x 12 managers = $1,500 total pot",
+    "$1,220 paid out for 1st ($820), 2nd ($300), and 3rd ($100)",
+    "$20 x 14 weeks = $280 (weekly pot, separate from the season-long payout)"
+   ]
   },
-
-  "rules": {
-    "buyIn": {
-      "title": "Buy-In & Payouts",
-      "items": [
-        "$125 buy-in x 12 managers = $1,500 total pot",
-        "$1,220 paid out for 1st ($820), 2nd ($300), and 3rd ($100)",
-        "$20 x 14 weeks = $280 (weekly pot, separate from the season-long payout)"
-      ]
-    },
-    "keeperRules": {
-      "title": "Keeper Rules",
-      "items": [
-        "Keepers are optional",
-        "You can keep up to 2 players, for up to 2 extra seasons each",
-        "To keep a player for 1 year — forfeit the draft pick one round earlier than where you drafted them",
-        "To keep that same player for another year — forfeit the draft pick two rounds earlier than where you drafted them",
-        "Example: keep a 2024 5th-round pick for 1 extra season → forfeit your 2025 4th-round pick",
-        "Example: keep that same player again → forfeit your 2026 3rd-round pick the following offseason",
-        "Can't keep 1st or 2nd round players",
-        "Next year's draft order is always random",
-        "To keep a waiver pickup, you give up a round 8 pick — unless they were drafted, in which case their original draft position sets the keeper cost",
-        "To keep a player you traded for, you forfeit the pick they were originally drafted at",
-        "Playoff teams cannot keep any waiver-wire player claimed after the regular season ends",
-        "Consolation bracket teams can only pick up free agents and should not submit waiver claims",
-        "If you trade away the pick required to keep a player, you must give up the next best pick instead"
-      ]
-    },
-    "keeperSteps": {
-      "title": "How to Select Keepers",
-      "deadlineNote": "Deadline: Sunday, August 17th. If your sleeper is injured during the final week of the preseason, you can swap them for another player or decline to claim a sleeper.",
-      "steps": [
-        "Step 1: Tap \"League Announcements\"",
-        "Step 2: Tap \"Select Keepers\""
-      ]
-    },
-    "tradeRules": {
-      "title": "Trade Rules",
-      "items": [
-        "Any trade involving draft picks must include a pick from the same draft in return — e.g. if you receive a 3rd-round pick, send back at least a 15th-round pick, so every team's roster count stays even",
-        "Picks can only be traded up to 2 years in advance (this carries the risk of not knowing the random draft order for that 2nd year)",
-        "No veto on preseason trades",
-        "Trade deadline is the end of the regular season",
-        "Every in-season trade is held to a veto vote"
-      ]
-    }
+  "keeperRules": {
+   "title": "Keeper Rules",
+   "items": [
+    "Keepers are optional",
+    "You can keep up to 2 players, for up to 2 extra seasons each",
+    "To keep a player for 1 year — forfeit the draft pick one round earlier than where you drafted them",
+    "To keep that same player for another year — forfeit the draft pick two rounds earlier than where you drafted them",
+    "Example: keep a 2024 5th-round pick for 1 extra season → forfeit your 2025 4th-round pick",
+    "Example: keep that same player again → forfeit your 2026 3rd-round pick the following offseason",
+    "Can't keep 1st or 2nd round players",
+    "Next year's draft order is always random",
+    "To keep a waiver pickup, you give up a round 8 pick — unless they were drafted, in which case their original draft position sets the keeper cost",
+    "To keep a player you traded for, you forfeit the pick they were originally drafted at",
+    "Playoff teams cannot keep any waiver-wire player claimed after the regular season ends",
+    "Consolation bracket teams can only pick up free agents and should not submit waiver claims",
+    "If you trade away the pick required to keep a player, you must give up the next best pick instead"
+   ]
   },
-
-  "history2025": {
-    "note": "Data from the 2025 season, migrated from the league's Apple Notes.",
-    "draftOrder": [
-      { "pick": 1, "manager": "Vishal" },
-      { "pick": 2, "manager": "Phil" },
-      { "pick": 3, "manager": "Daanyal" },
-      { "pick": 4, "manager": "Shyam" },
-      { "pick": 5, "manager": "Sagar" },
-      { "pick": 6, "manager": "Kishan" },
-      { "pick": 7, "manager": "Andrew" },
-      { "pick": 8, "manager": "Devon" },
-      { "pick": 9, "manager": "Josh" },
-      { "pick": 10, "manager": "Kaleb" },
-      { "pick": 11, "manager": "Fletch" },
-      { "pick": 12, "manager": "Will" }
-    ],
-    "pickCount": {
-      "note": "Number of picks each team owned per round after trades. Team names as recorded in the original league grid — these don't match current team names and no manager mapping was available.",
-      "rounds": 15,
-      "teams": [
-        { "team": "Nico Sauve",                    "picks": [1,1,1,0,1,1,1,1,1,0,1,1,2,1,2] },
-        { "team": "5Skiii",                        "picks": [2,2,1,1,1,1,1,1,1,2,1,1,0,0,0] },
-        { "team": "DARNOLD TRUMP 2024",             "picks": [0,1,1,1,1,1,1,1,1,1,1,1,1,1,2] },
-        { "team": "Smooky Boi",                    "picks": [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1] },
-        { "team": "Dobbins Nabers and Assoc.",      "picks": [1,0,0,0,1,1,1,1,1,1,1,1,1,1,4] },
-        { "team": "GGB",                           "picks": [1,1,1,0,1,1,1,1,0,1,1,1,1,2,2] },
-        { "team": "Lambos and McLaurins",           "picks": [1,1,1,0,1,1,1,1,1,1,0,1,2,2,1] },
-        { "team": "Leh Gett It",                   "picks": [1,1,1,2,1,1,1,1,1,1,1,1,1,1,0] },
-        { "team": "Love to Bake",                  "picks": [1,1,1,2,1,1,1,1,2,1,2,1,0,0,0] },
-        { "team": "NFL Young Boi",                 "picks": [1,2,1,1,1,1,1,1,1,1,1,1,1,1,0] },
-        { "team": "WHATCANBROWNDO4U",              "picks": [1,0,1,2,1,1,1,1,1,1,1,1,1,2,0] },
-        { "team": "Egg",                           "picks": [1,1,2,2,1,1,1,1,1,1,1,1,1,0,0] }
-      ]
-    },
-    "keepers": [
-      { "manager": "Sagar",   "players": ["Brian Thomas Jr."] },
-      { "manager": "Will",    "players": ["Jayden Daniels", "Bucky Irving"] },
-      { "manager": "Josh",    "players": ["Adam Thielen", "Xavier Worthy"] },
-      { "manager": "Kaleb",   "players": [] },
-      { "manager": "Phil",    "players": [] },
-      { "manager": "Kishan",  "players": ["Tee Higgins", "Chuba Hubbard"] },
-      { "manager": "Shyam",   "players": ["Chase Brown", "JSN"] },
-      { "manager": "Devon",   "players": ["Joe Burrow"] },
-      { "manager": "Fletch",  "players": ["Jerry Jeudy", "Brock Bowers"] },
-      { "manager": "Vishal",  "players": ["Brock Purdy"] },
-      { "manager": "Andrew",  "players": ["Jameson Williams"] },
-      { "manager": "Daanyal", "players": ["Ladd McConkey", "Jordan Mason"] }
-    ]
+  "keeperSteps": {
+   "title": "How to Select Keepers",
+   "deadlineNote": "Deadline: Sunday, August 17th. If your sleeper is injured during the final week of the preseason, you can swap them for another player or decline to claim a sleeper.",
+   "steps": [
+    "Step 1: Tap \"League Announcements\"",
+    "Step 2: Tap \"Select Keepers\""
+   ]
   },
-
-  "season2026": {
-    "teamToManager": {
-      "No Church in the Wild": "Sagar",
-      "I \ud83e\udda1 white slots": "Will",
-      "Imma Ride For My Muhfuckin Nix": "Josh",
-      "Smooky": "Kaleb",
-      "DickerTillSheWaddle": "Phil",
-      "GGB": "Kishan",
-      "The Najee Regime": "Shyam",
-      "Get\u2b07\ufe0f/lay\u2b07\ufe0f. OnceULay\u2b07\ufe0fUStay\u2b07\ufe0f": "Devon",
-      "Love to Bake": "Fletch",
-      "Whoootie-dhooo": "Vishal",
-      "WHATCANBROWNDO4U": "Andrew",
-      "\ud83d\uddd1\ufe0f": "Daanyal"
-    },
-    "draftOrder": [
-      { "round": 1,  "picks": ["Sagar","Fletch","Kaleb","Vishal","Will","Daanyal","Devon","Kishan","Josh","Phil","Andrew","Shyam"] },
-      { "round": 2,  "picks": ["Shyam","Andrew","Phil","Josh","Kishan","Devon","Devon","Will","Vishal","Vishal","Fletch","Sagar"] },
-      { "round": 3,  "picks": ["Sagar","Kishan","Kaleb","Vishal","Will","Sagar","Devon","Kishan","Josh","Andrew","Andrew","Shyam"] },
-      { "round": 4,  "picks": ["Shyam","Andrew","Kishan","Josh","Kishan","Devon","Daanyal","Will","Vishal","Vishal","Sagar","Sagar"] },
-      { "round": 5,  "picks": ["Sagar","Andrew","Kaleb","Vishal","Will","Daanyal","Devon","Kishan","Josh","Phil","Andrew","Shyam"] },
-      { "round": 6,  "picks": ["Shyam","Andrew","Phil","Sagar","Kishan","Devon","Daanyal","Will","Vishal","Kaleb","Fletch","Sagar"] },
-      { "round": 7,  "picks": ["Sagar","Andrew","Kaleb","Vishal","Will","Daanyal","Devon","Kishan","Josh","Phil","Andrew","Shyam"] },
-      { "round": 8,  "picks": ["Shyam","Fletch","Phil","Josh","Kishan","Devon","Daanyal","Will","Vishal","Kaleb","Fletch","Fletch"] },
-      { "round": 9,  "picks": ["Sagar","Fletch","Kaleb","Vishal","Will","Daanyal","Devon","Kishan","Josh","Phil","Fletch","Shyam"] },
-      { "round": 10, "picks": ["Shyam","Andrew","Phil","Josh","Kishan","Devon","Daanyal","Will","Vishal","Kaleb","Fletch","Sagar"] },
-      { "round": 11, "picks": ["Sagar","Fletch","Kaleb","Vishal","Will","Daanyal","Devon","Kishan","Josh","Phil","Andrew","Shyam"] },
-      { "round": 12, "picks": ["Shyam","Andrew","Phil","Josh","Kishan","Devon","Daanyal","Will","Vishal","Kaleb","Fletch","Sagar"] },
-      { "round": 13, "picks": ["Sagar","Fletch","Kaleb","Vishal","Will","Daanyal","Devon","Kishan","Josh","Phil","Andrew","Shyam"] },
-      { "round": 14, "picks": ["Shyam","Andrew","Phil","Josh","Fletch","Devon","Daanyal","Will","Kaleb","Kaleb","Fletch","Josh"] },
-      { "round": 15, "picks": ["Daanyal","Fletch","Kaleb","Kaleb","Will","Daanyal","Daanyal","Phil","Josh","Phil","Phil","Shyam"] }
-    ]
+  "tradeRules": {
+   "title": "Trade Rules",
+   "items": [
+    "Any trade involving draft picks must include a pick from the same draft in return — e.g. if you receive a 3rd-round pick, send back at least a 15th-round pick, so every team's roster count stays even",
+    "Picks can only be traded up to 2 years in advance (this carries the risk of not knowing the random draft order for that 2nd year)",
+    "No veto on preseason trades",
+    "Trade deadline is the end of the regular season",
+    "Every in-season trade is held to a veto vote"
+   ]
   }
+ },
+ "season2026": {
+  "draftOrder": [
+   {
+    "round": 1,
+    "picks": [
+     "Sagar",
+     "Fletch",
+     "Kaleb",
+     "Vishal",
+     "Will",
+     "Daanyal",
+     "Devon",
+     "Kishan",
+     "Josh",
+     "Phil",
+     "Andrew",
+     "Shyam"
+    ]
+   },
+   {
+    "round": 2,
+    "picks": [
+     "Shyam",
+     "Andrew",
+     "Phil",
+     "Josh",
+     "Kishan",
+     "Devon",
+     "Devon",
+     "Will",
+     "Vishal",
+     "Vishal",
+     "Fletch",
+     "Sagar"
+    ]
+   },
+   {
+    "round": 3,
+    "picks": [
+     "Sagar",
+     "Kishan",
+     "Kaleb",
+     "Vishal",
+     "Will",
+     "Sagar",
+     "Devon",
+     "Kishan",
+     "Josh",
+     "Andrew",
+     "Andrew",
+     "Shyam"
+    ]
+   },
+   {
+    "round": 4,
+    "picks": [
+     "Shyam",
+     "Andrew",
+     "Kishan",
+     "Josh",
+     "Kishan",
+     "Devon",
+     "Daanyal",
+     "Will",
+     "Vishal",
+     "Vishal",
+     "Sagar",
+     "Sagar"
+    ]
+   },
+   {
+    "round": 5,
+    "picks": [
+     "Sagar",
+     "Andrew",
+     "Kaleb",
+     "Vishal",
+     "Will",
+     "Daanyal",
+     "Devon",
+     "Kishan",
+     "Josh",
+     "Phil",
+     "Andrew",
+     "Shyam"
+    ]
+   },
+   {
+    "round": 6,
+    "picks": [
+     "Shyam",
+     "Andrew",
+     "Phil",
+     "Sagar",
+     "Kishan",
+     "Devon",
+     "Daanyal",
+     "Will",
+     "Vishal",
+     "Kaleb",
+     "Fletch",
+     "Sagar"
+    ]
+   },
+   {
+    "round": 7,
+    "picks": [
+     "Sagar",
+     "Andrew",
+     "Kaleb",
+     "Vishal",
+     "Will",
+     "Daanyal",
+     "Devon",
+     "Kishan",
+     "Josh",
+     "Phil",
+     "Andrew",
+     "Shyam"
+    ]
+   },
+   {
+    "round": 8,
+    "picks": [
+     "Shyam",
+     "Fletch",
+     "Phil",
+     "Josh",
+     "Kishan",
+     "Devon",
+     "Daanyal",
+     "Will",
+     "Vishal",
+     "Kaleb",
+     "Fletch",
+     "Fletch"
+    ]
+   },
+   {
+    "round": 9,
+    "picks": [
+     "Sagar",
+     "Fletch",
+     "Kaleb",
+     "Vishal",
+     "Will",
+     "Daanyal",
+     "Devon",
+     "Kishan",
+     "Josh",
+     "Phil",
+     "Fletch",
+     "Shyam"
+    ]
+   },
+   {
+    "round": 10,
+    "picks": [
+     "Shyam",
+     "Andrew",
+     "Phil",
+     "Josh",
+     "Kishan",
+     "Devon",
+     "Daanyal",
+     "Will",
+     "Vishal",
+     "Kaleb",
+     "Fletch",
+     "Sagar"
+    ]
+   },
+   {
+    "round": 11,
+    "picks": [
+     "Sagar",
+     "Fletch",
+     "Kaleb",
+     "Vishal",
+     "Will",
+     "Daanyal",
+     "Devon",
+     "Kishan",
+     "Josh",
+     "Phil",
+     "Andrew",
+     "Shyam"
+    ]
+   },
+   {
+    "round": 12,
+    "picks": [
+     "Shyam",
+     "Andrew",
+     "Phil",
+     "Josh",
+     "Kishan",
+     "Devon",
+     "Daanyal",
+     "Will",
+     "Vishal",
+     "Kaleb",
+     "Fletch",
+     "Sagar"
+    ]
+   },
+   {
+    "round": 13,
+    "picks": [
+     "Sagar",
+     "Fletch",
+     "Kaleb",
+     "Vishal",
+     "Will",
+     "Daanyal",
+     "Devon",
+     "Kishan",
+     "Josh",
+     "Phil",
+     "Andrew",
+     "Shyam"
+    ]
+   },
+   {
+    "round": 14,
+    "picks": [
+     "Shyam",
+     "Andrew",
+     "Phil",
+     "Josh",
+     "Fletch",
+     "Devon",
+     "Daanyal",
+     "Will",
+     "Kaleb",
+     "Kaleb",
+     "Fletch",
+     "Josh"
+    ]
+   },
+   {
+    "round": 15,
+    "picks": [
+     "Daanyal",
+     "Fletch",
+     "Kaleb",
+     "Kaleb",
+     "Will",
+     "Daanyal",
+     "Daanyal",
+     "Phil",
+     "Josh",
+     "Phil",
+     "Phil",
+     "Shyam"
+    ]
+   }
+  ]
+ },
+ "history": {
+  "years": [
+   {
+    "year": "2024",
+    "views": [
+     {
+      "id": "draft",
+      "label": "Draft",
+      "note": "Full 2024 draft results — 15 rounds, 12 picks per round.",
+      "rounds": [
+       {
+        "round": 1,
+        "picks": [
+         {
+          "pick": 1,
+          "player": "Christian McCaffrey",
+          "manager": "Daanyal"
+         },
+         {
+          "pick": 2,
+          "player": "Tyreek Hill",
+          "manager": "Fletch"
+         },
+         {
+          "pick": 3,
+          "player": "Bijan Robinson",
+          "manager": "Sagar"
+         },
+         {
+          "pick": 4,
+          "player": "Derrick Henry",
+          "manager": "Kishan"
+         },
+         {
+          "pick": 5,
+          "player": "Breece Hall",
+          "manager": "Andrew"
+         },
+         {
+          "pick": 6,
+          "player": "CeeDee Lamb",
+          "manager": "Shyam"
+         },
+         {
+          "pick": 7,
+          "player": "Ja'Marr Chase",
+          "manager": "Vishal"
+         },
+         {
+          "pick": 8,
+          "player": "A.J. Brown",
+          "manager": "Devon"
+         },
+         {
+          "pick": 9,
+          "player": "Justin Jefferson",
+          "manager": "Phil"
+         },
+         {
+          "pick": 10,
+          "player": "Amon-Ra St. Brown",
+          "manager": "Will"
+         },
+         {
+          "pick": 11,
+          "player": "Jonathan Taylor",
+          "manager": "Josh"
+         },
+         {
+          "pick": 12,
+          "player": "Garrett Wilson",
+          "manager": "Pea"
+         }
+        ]
+       },
+       {
+        "round": 2,
+        "picks": [
+         {
+          "pick": 1,
+          "player": "Saquon Barkley",
+          "manager": "Pea"
+         },
+         {
+          "pick": 2,
+          "player": "Drake London",
+          "manager": "Josh"
+         },
+         {
+          "pick": 3,
+          "player": "Puka Nacua",
+          "manager": "Will"
+         },
+         {
+          "pick": 4,
+          "player": "Jahmyr Gibbs",
+          "manager": "Phil"
+         },
+         {
+          "pick": 5,
+          "player": "Isiah Pacheco",
+          "manager": "Devon"
+         },
+         {
+          "pick": 6,
+          "player": "Kyren Williams",
+          "manager": "Vishal"
+         },
+         {
+          "pick": 7,
+          "player": "Marvin Harrison Jr.",
+          "manager": "Shyam"
+         },
+         {
+          "pick": 8,
+          "player": "Davante Adams",
+          "manager": "Andrew"
+         },
+         {
+          "pick": 9,
+          "player": "Cooper Kupp",
+          "manager": "Kishan"
+         },
+         {
+          "pick": 10,
+          "player": "Nico Collins",
+          "manager": "Sagar"
+         },
+         {
+          "pick": 11,
+          "player": "Travis Etienne Jr.",
+          "manager": "Fletch"
+         },
+         {
+          "pick": 12,
+          "player": "Travis Kelce",
+          "manager": "Daanyal"
+         }
+        ]
+       },
+       {
+        "round": 3,
+        "picks": [
+         {
+          "pick": 1,
+          "player": "Josh Allen",
+          "manager": "Daanyal"
+         },
+         {
+          "pick": 2,
+          "player": "Mike Evans",
+          "manager": "Fletch"
+         },
+         {
+          "pick": 3,
+          "player": "Josh Jacobs",
+          "manager": "Sagar"
+         },
+         {
+          "pick": 4,
+          "player": "Jalen Hurts",
+          "manager": "Kishan"
+         },
+         {
+          "pick": 5,
+          "player": "Patrick Mahomes",
+          "manager": "Andrew"
+         },
+         {
+          "pick": 6,
+          "player": "De'Von Achane",
+          "manager": "Shyam"
+         },
+         {
+          "pick": 7,
+          "player": "C.J. Stroud",
+          "manager": "Vishal"
+         },
+         {
+          "pick": 8,
+          "player": "DK Metcalf",
+          "manager": "Devon"
+         },
+         {
+          "pick": 9,
+          "player": "Lamar Jackson",
+          "manager": "Phil"
+         },
+         {
+          "pick": 10,
+          "player": "Chris Olave",
+          "manager": "Will"
+         },
+         {
+          "pick": 11,
+          "player": "DJ Moore",
+          "manager": "Josh"
+         },
+         {
+          "pick": 12,
+          "player": "Brandon Aiyuk",
+          "manager": "Pea"
+         }
+        ]
+       },
+       {
+        "round": 4,
+        "picks": [
+         {
+          "pick": 1,
+          "player": "Sam LaPorta",
+          "manager": "Pea"
+         },
+         {
+          "pick": 2,
+          "player": "Joe Mixon",
+          "manager": "Josh"
+         },
+         {
+          "pick": 3,
+          "player": "Rachaad White",
+          "manager": "Will"
+         },
+         {
+          "pick": 4,
+          "player": "Deebo Samuel",
+          "manager": "Phil"
+         },
+         {
+          "pick": 5,
+          "player": "Stefon Diggs",
+          "manager": "Devon"
+         },
+         {
+          "pick": 6,
+          "player": "Jaylen Waddle",
+          "manager": "Vishal"
+         },
+         {
+          "pick": 7,
+          "player": "James Cook",
+          "manager": "Shyam"
+         },
+         {
+          "pick": 8,
+          "player": "Kenneth Walker III",
+          "manager": "Andrew"
+         },
+         {
+          "pick": 9,
+          "player": "DeVonta Smith",
+          "manager": "Kishan"
+         },
+         {
+          "pick": 10,
+          "player": "Kyler Murray",
+          "manager": "Sagar"
+         },
+         {
+          "pick": 11,
+          "player": "Michael Pittman Jr.",
+          "manager": "Fletch"
+         },
+         {
+          "pick": 12,
+          "player": "Amari Cooper",
+          "manager": "Daanyal"
+         }
+        ]
+       },
+       {
+        "round": 5,
+        "picks": [
+         {
+          "pick": 1,
+          "player": "Alvin Kamara",
+          "manager": "Daanyal"
+         },
+         {
+          "pick": 2,
+          "player": "Rashee Rice",
+          "manager": "Fletch"
+         },
+         {
+          "pick": 3,
+          "player": "David Montgomery",
+          "manager": "Sagar"
+         },
+         {
+          "pick": 4,
+          "player": "D'Andre Swift",
+          "manager": "Kishan"
+         },
+         {
+          "pick": 5,
+          "player": "Mark Andrews",
+          "manager": "Andrew"
+         },
+         {
+          "pick": 6,
+          "player": "Trey McBride",
+          "manager": "Shyam"
+         },
+         {
+          "pick": 7,
+          "player": "James Conner",
+          "manager": "Vishal"
+         },
+         {
+          "pick": 8,
+          "player": "Raheem Mostert",
+          "manager": "Devon"
+         },
+         {
+          "pick": 9,
+          "player": "Malik Nabers",
+          "manager": "Phil"
+         },
+         {
+          "pick": 10,
+          "player": "Aaron Jones Sr.",
+          "manager": "Will"
+         },
+         {
+          "pick": 11,
+          "player": "Anthony Richardson",
+          "manager": "Josh"
+         },
+         {
+          "pick": 12,
+          "player": "Tank Dell",
+          "manager": "Pea"
+         }
+        ]
+       },
+       {
+        "round": 6,
+        "picks": [
+         {
+          "pick": 1,
+          "player": "Najee Harris",
+          "manager": "Pea"
+         },
+         {
+          "pick": 2,
+          "player": "George Kittle",
+          "manager": "Josh"
+         },
+         {
+          "pick": 3,
+          "player": "Dak Prescott",
+          "manager": "Will"
+         },
+         {
+          "pick": 4,
+          "player": "Diontae Johnson",
+          "manager": "Phil"
+         },
+         {
+          "pick": 5,
+          "player": "Joe Burrow",
+          "manager": "Devon"
+         },
+         {
+          "pick": 6,
+          "player": "George Pickens",
+          "manager": "Vishal"
+         },
+         {
+          "pick": 7,
+          "player": "Terry McLaurin",
+          "manager": "Shyam"
+         },
+         {
+          "pick": 8,
+          "player": "Zay Flowers",
+          "manager": "Andrew"
+         },
+         {
+          "pick": 9,
+          "player": "Tee Higgins",
+          "manager": "Kishan"
+         },
+         {
+          "pick": 10,
+          "player": "Calvin Ridley",
+          "manager": "Sagar"
+         },
+         {
+          "pick": 11,
+          "player": "Tony Pollard",
+          "manager": "Fletch"
+         },
+         {
+          "pick": 12,
+          "player": "Keenan Allen",
+          "manager": "Daanyal"
+         }
+        ]
+       },
+       {
+        "round": 7,
+        "picks": [
+         {
+          "pick": 1,
+          "player": "Jayden Reed",
+          "manager": "Daanyal"
+         },
+         {
+          "pick": 2,
+          "player": "Jordan Love",
+          "manager": "Fletch"
+         },
+         {
+          "pick": 3,
+          "player": "Javonte Williams",
+          "manager": "Sagar"
+         },
+         {
+          "pick": 4,
+          "player": "Kyle Pitts",
+          "manager": "Kishan"
+         },
+         {
+          "pick": 5,
+          "player": "Brian Robinson Jr.",
+          "manager": "Andrew"
+         },
+         {
+          "pick": 6,
+          "player": "Rhamondre Stevenson",
+          "manager": "Shyam"
+         },
+         {
+          "pick": 7,
+          "player": "Dalton Kincaid",
+          "manager": "Vishal"
+         },
+         {
+          "pick": 8,
+          "player": "Zamir White",
+          "manager": "Devon"
+         },
+         {
+          "pick": 9,
+          "player": "Evan Engram",
+          "manager": "Phil"
+         },
+         {
+          "pick": 10,
+          "player": "Christian Watson",
+          "manager": "Will"
+         },
+         {
+          "pick": 11,
+          "player": "Xavier Worthy",
+          "manager": "Josh"
+         },
+         {
+          "pick": 12,
+          "player": "Chris Godwin",
+          "manager": "Pea"
+         }
+        ]
+       },
+       {
+        "round": 8,
+        "picks": [
+         {
+          "pick": 1,
+          "player": "Caleb Williams",
+          "manager": "Pea"
+         },
+         {
+          "pick": 2,
+          "player": "Tyjae Spears",
+          "manager": "Josh"
+         },
+         {
+          "pick": 3,
+          "player": "David Njoku",
+          "manager": "Will"
+         },
+         {
+          "pick": 4,
+          "player": "Devin Singletary",
+          "manager": "Phil"
+         },
+         {
+          "pick": 5,
+          "player": "Rome Odunze",
+          "manager": "Devon"
+         },
+         {
+          "pick": 6,
+          "player": "Christian Kirk",
+          "manager": "Vishal"
+         },
+         {
+          "pick": 7,
+          "player": "Jaxon Smith-Njigba",
+          "manager": "Shyam"
+         },
+         {
+          "pick": 8,
+          "player": "Jameson Williams",
+          "manager": "Andrew"
+         },
+         {
+          "pick": 9,
+          "player": "Nick Chubb",
+          "manager": "Kishan"
+         },
+         {
+          "pick": 10,
+          "player": "Brian Thomas Jr.",
+          "manager": "Sagar"
+         },
+         {
+          "pick": 11,
+          "player": "Jake Ferguson",
+          "manager": "Fletch"
+         },
+         {
+          "pick": 12,
+          "player": "Gus Edwards",
+          "manager": "Daanyal"
+         }
+        ]
+       },
+       {
+        "round": 9,
+        "picks": [
+         {
+          "pick": 1,
+          "player": "Ladd McConkey",
+          "manager": "Daanyal"
+         },
+         {
+          "pick": 2,
+          "player": "Courtland Sutton",
+          "manager": "Fletch"
+         },
+         {
+          "pick": 3,
+          "player": "Hollywood Brown",
+          "manager": "Sagar"
+         },
+         {
+          "pick": 4,
+          "player": "Jordan Addison",
+          "manager": "Kishan"
+         },
+         {
+          "pick": 5,
+          "player": "Jerome Ford",
+          "manager": "Andrew"
+         },
+         {
+          "pick": 6,
+          "player": "Jared Goff",
+          "manager": "Shyam"
+         },
+         {
+          "pick": 7,
+          "player": "Jaylen Warren",
+          "manager": "Vishal"
+         },
+         {
+          "pick": 8,
+          "player": "Austin Ekeler",
+          "manager": "Devon"
+         },
+         {
+          "pick": 9,
+          "player": "Baltimore",
+          "manager": "Phil"
+         },
+         {
+          "pick": 10,
+          "player": "Zack Moss",
+          "manager": "Will"
+         },
+         {
+          "pick": 11,
+          "player": "Marvin Mims Jr.",
+          "manager": "Josh"
+         },
+         {
+          "pick": 12,
+          "player": "DeAndre Hopkins",
+          "manager": "Pea"
+         }
+        ]
+       },
+       {
+        "round": 10,
+        "picks": [
+         {
+          "pick": 1,
+          "player": "Ezekiel Elliott",
+          "manager": "Pea"
+         },
+         {
+          "pick": 2,
+          "player": "Rico Dowdle",
+          "manager": "Josh"
+         },
+         {
+          "pick": 3,
+          "player": "Joshua Palmer",
+          "manager": "Will"
+         },
+         {
+          "pick": 4,
+          "player": "Justin Tucker",
+          "manager": "Phil"
+         },
+         {
+          "pick": 5,
+          "player": "Trey Benson",
+          "manager": "Devon"
+         },
+         {
+          "pick": 6,
+          "player": "Harrison Butker",
+          "manager": "Vishal"
+         },
+         {
+          "pick": 7,
+          "player": "Chase Brown",
+          "manager": "Shyam"
+         },
+         {
+          "pick": 8,
+          "player": "Tyler Lockett",
+          "manager": "Andrew"
+         },
+         {
+          "pick": 9,
+          "player": "Justin Herbert",
+          "manager": "Kishan"
+         },
+         {
+          "pick": 10,
+          "player": "Dallas Goedert",
+          "manager": "Sagar"
+         },
+         {
+          "pick": 11,
+          "player": "Brock Bowers",
+          "manager": "Fletch"
+         },
+         {
+          "pick": 12,
+          "player": "Khalil Shakir",
+          "manager": "Daanyal"
+         }
+        ]
+       },
+       {
+        "round": 11,
+        "picks": [
+         {
+          "pick": 1,
+          "player": "Mike Williams",
+          "manager": "Daanyal"
+         },
+         {
+          "pick": 2,
+          "player": "Blake Corum",
+          "manager": "Fletch"
+         },
+         {
+          "pick": 3,
+          "player": "Jonathon Brooks",
+          "manager": "Sagar"
+         },
+         {
+          "pick": 4,
+          "player": "Chuba Hubbard",
+          "manager": "Kishan"
+         },
+         {
+          "pick": 5,
+          "player": "Keon Coleman",
+          "manager": "Andrew"
+         },
+         {
+          "pick": 6,
+          "player": "Dallas",
+          "manager": "Shyam"
+         },
+         {
+          "pick": 7,
+          "player": "Jaleel McLaughlin",
+          "manager": "Vishal"
+         },
+         {
+          "pick": 8,
+          "player": "Chig Okonkwo",
+          "manager": "Devon"
+         },
+         {
+          "pick": 9,
+          "player": "J.K. Dobbins",
+          "manager": "Phil"
+         },
+         {
+          "pick": 10,
+          "player": "Zach Charbonnet",
+          "manager": "Will"
+         },
+         {
+          "pick": 11,
+          "player": "Ty Chandler",
+          "manager": "Josh"
+         },
+         {
+          "pick": 12,
+          "player": "Jakobi Meyers",
+          "manager": "Pea"
+         }
+        ]
+       },
+       {
+        "round": 12,
+        "picks": [
+         {
+          "pick": 1,
+          "player": "Khalil Herbert",
+          "manager": "Pea"
+         },
+         {
+          "pick": 2,
+          "player": "Romeo Doubs",
+          "manager": "Josh"
+         },
+         {
+          "pick": 3,
+          "player": "Jayden Daniels",
+          "manager": "Will"
+         },
+         {
+          "pick": 4,
+          "player": "Antonio Gibson",
+          "manager": "Phil"
+         },
+         {
+          "pick": 5,
+          "player": "Tyler Bass",
+          "manager": "Devon"
+         },
+         {
+          "pick": 6,
+          "player": "Brock Purdy",
+          "manager": "Vishal"
+         },
+         {
+          "pick": 7,
+          "player": "Dalton Schultz",
+          "manager": "Shyam"
+         },
+         {
+          "pick": 8,
+          "player": "Brandon Aubrey",
+          "manager": "Andrew"
+         },
+         {
+          "pick": 9,
+          "player": "San Francisco",
+          "manager": "Kishan"
+         },
+         {
+          "pick": 10,
+          "player": "Tua Tagovailoa",
+          "manager": "Sagar"
+         },
+         {
+          "pick": 11,
+          "player": "Gabe Davis",
+          "manager": "Fletch"
+         },
+         {
+          "pick": 12,
+          "player": "Kansas City",
+          "manager": "Daanyal"
+         }
+        ]
+       },
+       {
+        "round": 13,
+        "picks": [
+         {
+          "pick": 1,
+          "player": "Matthew Stafford",
+          "manager": "Daanyal"
+         },
+         {
+          "pick": 2,
+          "player": "Tyler Allgeier",
+          "manager": "Fletch"
+         },
+         {
+          "pick": 3,
+          "player": "Ja'Lynn Polk",
+          "manager": "Sagar"
+         },
+         {
+          "pick": 4,
+          "player": "Younghoe Koo",
+          "manager": "Kishan"
+         },
+         {
+          "pick": 5,
+          "player": "New York",
+          "manager": "Andrew"
+         },
+         {
+          "pick": 6,
+          "player": "Adonai Mitchell",
+          "manager": "Shyam"
+         },
+         {
+          "pick": 7,
+          "player": "Cleveland",
+          "manager": "Vishal"
+         },
+         {
+          "pick": 8,
+          "player": "Kirk Cousins",
+          "manager": "Devon"
+         },
+         {
+          "pick": 9,
+          "player": "Aaron Rodgers",
+          "manager": "Phil"
+         },
+         {
+          "pick": 10,
+          "player": "Taysom Hill",
+          "manager": "Will"
+         },
+         {
+          "pick": 11,
+          "player": "Pittsburgh",
+          "manager": "Josh"
+         },
+         {
+          "pick": 12,
+          "player": "Buffalo",
+          "manager": "Pea"
+         }
+        ]
+       },
+       {
+        "round": 14,
+        "picks": [
+         {
+          "pick": 1,
+          "player": "Jason Sanders",
+          "manager": "Pea"
+         },
+         {
+          "pick": 2,
+          "player": "Luke McCaffrey",
+          "manager": "Josh"
+         },
+         {
+          "pick": 3,
+          "player": "Bucky Irving",
+          "manager": "Will"
+         },
+         {
+          "pick": 4,
+          "player": "Rashid Shaheed",
+          "manager": "Phil"
+         },
+         {
+          "pick": 5,
+          "player": "Xavier Legette",
+          "manager": "Devon"
+         },
+         {
+          "pick": 6,
+          "player": "Curtis Samuel",
+          "manager": "Vishal"
+         },
+         {
+          "pick": 7,
+          "player": "Trevor Lawrence",
+          "manager": "Shyam"
+         },
+         {
+          "pick": 8,
+          "player": "Jordan Mason",
+          "manager": "Andrew"
+         },
+         {
+          "pick": 9,
+          "player": "Adam Thielen",
+          "manager": "Kishan"
+         },
+         {
+          "pick": 10,
+          "player": "Ray Davis",
+          "manager": "Sagar"
+         },
+         {
+          "pick": 11,
+          "player": "Cincinnati",
+          "manager": "Fletch"
+         },
+         {
+          "pick": 12,
+          "player": "Jerry Jeudy",
+          "manager": "Daanyal"
+         }
+        ]
+       },
+       {
+        "round": 15,
+        "picks": [
+         {
+          "pick": 1,
+          "player": "Jake Elliott",
+          "manager": "Daanyal"
+         },
+         {
+          "pick": 2,
+          "player": "Ka'imi Fairbairn",
+          "manager": "Fletch"
+         },
+         {
+          "pick": 3,
+          "player": "Atlanta",
+          "manager": "Sagar"
+         },
+         {
+          "pick": 4,
+          "player": "Dontayvion Wicks",
+          "manager": "Kishan"
+         },
+         {
+          "pick": 5,
+          "player": "Josh Downs",
+          "manager": "Andrew"
+         },
+         {
+          "pick": 6,
+          "player": "Evan McPherson",
+          "manager": "Shyam"
+         },
+         {
+          "pick": 7,
+          "player": "Cole Kmet",
+          "manager": "Vishal"
+         },
+         {
+          "pick": 8,
+          "player": "Philadelphia",
+          "manager": "Devon"
+         },
+         {
+          "pick": 9,
+          "player": "Pat Freiermuth",
+          "manager": "Phil"
+         },
+         {
+          "pick": 10,
+          "player": "Cameron Dicker",
+          "manager": "Will"
+         },
+         {
+          "pick": 11,
+          "player": "Jake Moody",
+          "manager": "Josh"
+         },
+         {
+          "pick": 12,
+          "player": "Luke Musgrave",
+          "manager": "Pea"
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "year": "2025",
+    "views": [
+     {
+      "id": "draft",
+      "label": "Draft",
+      "note": "Full 2025 draft results — 15 rounds, 12 picks per round.",
+      "rounds": [
+       {
+        "round": 1,
+        "picks": [
+         {
+          "pick": 1,
+          "player": "Ja'Marr Chase",
+          "manager": "Vishal"
+         },
+         {
+          "pick": 2,
+          "player": "Jahmyr Gibbs",
+          "manager": "Daanyal"
+         },
+         {
+          "pick": 3,
+          "player": "Saquon Barkley",
+          "manager": "Daanyal"
+         },
+         {
+          "pick": 4,
+          "player": "Bijan Robinson",
+          "manager": "Shyam"
+         },
+         {
+          "pick": 5,
+          "player": "Justin Jefferson",
+          "manager": "Sagar"
+         },
+         {
+          "pick": 6,
+          "player": "CeeDee Lamb",
+          "manager": "Kishan"
+         },
+         {
+          "pick": 7,
+          "player": "Derrick Henry",
+          "manager": "Andrew"
+         },
+         {
+          "pick": 8,
+          "player": "Amon-Ra St. Brown",
+          "manager": "Devon"
+         },
+         {
+          "pick": 9,
+          "player": "Christian McCaffrey",
+          "manager": "Will"
+         },
+         {
+          "pick": 10,
+          "player": "Malik Nabers",
+          "manager": "Kaleb"
+         },
+         {
+          "pick": 11,
+          "player": "Josh Jacobs",
+          "manager": "Fletch"
+         },
+         {
+          "pick": 12,
+          "player": "Nico Collins",
+          "manager": "Will"
+         }
+        ]
+       },
+       {
+        "round": 2,
+        "picks": [
+         {
+          "pick": 1,
+          "player": "Drake London",
+          "manager": "Will"
+         },
+         {
+          "pick": 2,
+          "player": "Ashton Jeanty",
+          "manager": "Fletch"
+         },
+         {
+          "pick": 3,
+          "player": "Jonathan Taylor",
+          "manager": "Kaleb"
+         },
+         {
+          "pick": 4,
+          "player": "De'Von Achane",
+          "manager": "Josh"
+         },
+         {
+          "pick": 5,
+          "player": "Kyren Williams",
+          "manager": "Devon"
+         },
+         {
+          "pick": 6,
+          "player": "Puka Nacua",
+          "manager": "Will"
+         },
+         {
+          "pick": 7,
+          "player": "Omarion Hampton",
+          "manager": "Kishan"
+         },
+         {
+          "pick": 8,
+          "player": "Trey McBride",
+          "manager": "Sagar"
+         },
+         {
+          "pick": 9,
+          "player": "A.J. Brown",
+          "manager": "Shyam"
+         },
+         {
+          "pick": 10,
+          "player": "Lamar Jackson",
+          "manager": "Phil"
+         },
+         {
+          "pick": 11,
+          "player": "Jalen Hurts",
+          "manager": "Vishal"
+         },
+         {
+          "pick": 12,
+          "player": "Terry McLaurin",
+          "manager": "Vishal"
+         }
+        ]
+       },
+       {
+        "round": 3,
+        "picks": [
+         {
+          "pick": 1,
+          "player": "James Cook III",
+          "manager": "Vishal"
+         },
+         {
+          "pick": 2,
+          "player": "Josh Allen",
+          "manager": "Daanyal"
+         },
+         {
+          "pick": 3,
+          "player": "Marvin Harrison Jr.",
+          "manager": "Daanyal"
+         },
+         {
+          "pick": 4,
+          "player": "Tyreek Hill",
+          "manager": "Shyam"
+         },
+         {
+          "pick": 5,
+          "player": "Kenneth Walker III",
+          "manager": "Sagar"
+         },
+         {
+          "pick": 6,
+          "player": "Patrick Mahomes",
+          "manager": "Kishan"
+         },
+         {
+          "pick": 7,
+          "player": "Mike Evans",
+          "manager": "Andrew"
+         },
+         {
+          "pick": 8,
+          "player": "Alvin Kamara",
+          "manager": "Devon"
+         },
+         {
+          "pick": 9,
+          "player": "George Kittle",
+          "manager": "Josh"
+         },
+         {
+          "pick": 10,
+          "player": "Davante Adams",
+          "manager": "Kaleb"
+         },
+         {
+          "pick": 11,
+          "player": "Garrett Wilson",
+          "manager": "Fletch"
+         },
+         {
+          "pick": 12,
+          "player": "DK Metcalf",
+          "manager": "Will"
+         }
+        ]
+       },
+       {
+        "round": 4,
+        "picks": [
+         {
+          "pick": 1,
+          "player": "TreVeyon Henderson",
+          "manager": "Will"
+         },
+         {
+          "pick": 2,
+          "player": "Isiah Pacheco",
+          "manager": "Fletch"
+         },
+         {
+          "pick": 3,
+          "player": "George Pickens",
+          "manager": "Kaleb"
+         },
+         {
+          "pick": 4,
+          "player": "Breece Hall",
+          "manager": "Josh"
+         },
+         {
+          "pick": 5,
+          "player": "Zay Flowers",
+          "manager": "Devon"
+         },
+         {
+          "pick": 6,
+          "player": "James Conner",
+          "manager": "Andrew"
+         },
+         {
+          "pick": 7,
+          "player": "D'Andre Swift",
+          "manager": "Andrew"
+         },
+         {
+          "pick": 8,
+          "player": "Travis Hunter",
+          "manager": "Fletch"
+         },
+         {
+          "pick": 9,
+          "player": "Jaylen Waddle",
+          "manager": "Phil"
+         },
+         {
+          "pick": 10,
+          "player": "RJ Harvey",
+          "manager": "Daanyal"
+         },
+         {
+          "pick": 11,
+          "player": "Tony Pollard",
+          "manager": "Devon"
+         },
+         {
+          "pick": 12,
+          "player": "Sam LaPorta",
+          "manager": "Vishal"
+         }
+        ]
+       },
+       {
+        "round": 5,
+        "picks": [
+         {
+          "pick": 1,
+          "player": "Kaleb Johnson",
+          "manager": "Vishal"
+         },
+         {
+          "pick": 2,
+          "player": "David Montgomery",
+          "manager": "Phil"
+         },
+         {
+          "pick": 3,
+          "player": "DeVonta Smith",
+          "manager": "Daanyal"
+         },
+         {
+          "pick": 4,
+          "player": "Tetairoa McMillan",
+          "manager": "Shyam"
+         },
+         {
+          "pick": 5,
+          "player": "Courtland Sutton",
+          "manager": "Sagar"
+         },
+         {
+          "pick": 6,
+          "player": "Tee Higgins",
+          "manager": "Kishan"
+         },
+         {
+          "pick": 7,
+          "player": "DJ Moore",
+          "manager": "Andrew"
+         },
+         {
+          "pick": 8,
+          "player": "Joe Burrow",
+          "manager": "Devon"
+         },
+         {
+          "pick": 9,
+          "player": "Aaron Jones Sr.",
+          "manager": "Josh"
+         },
+         {
+          "pick": 10,
+          "player": "Mark Andrews",
+          "manager": "Kaleb"
+         },
+         {
+          "pick": 11,
+          "player": "Baker Mayfield",
+          "manager": "Fletch"
+         },
+         {
+          "pick": 12,
+          "player": "Ricky Pearsall",
+          "manager": "Will"
+         }
+        ]
+       },
+       {
+        "round": 6,
+        "picks": [
+         {
+          "pick": 1,
+          "player": "Emeka Egbuka",
+          "manager": "Will"
+         },
+         {
+          "pick": 2,
+          "player": "Calvin Ridley",
+          "manager": "Fletch"
+         },
+         {
+          "pick": 3,
+          "player": "Joe Mixon",
+          "manager": "Kaleb"
+         },
+         {
+          "pick": 4,
+          "player": "Xavier Worthy",
+          "manager": "Josh"
+         },
+         {
+          "pick": 5,
+          "player": "Travis Kelce",
+          "manager": "Devon"
+         },
+         {
+          "pick": 6,
+          "player": "Jaylen Warren",
+          "manager": "Andrew"
+         },
+         {
+          "pick": 7,
+          "player": "Rome Odunze",
+          "manager": "Kishan"
+         },
+         {
+          "pick": 8,
+          "player": "Rashee Rice",
+          "manager": "Sagar"
+         },
+         {
+          "pick": 9,
+          "player": "Jacory Croskey-Merritt",
+          "manager": "Shyam"
+         },
+         {
+          "pick": 10,
+          "player": "T.J. Hockenson",
+          "manager": "Daanyal"
+         },
+         {
+          "pick": 11,
+          "player": "Brian Robinson",
+          "manager": "Phil"
+         },
+         {
+          "pick": 12,
+          "player": "Zach Charbonnet",
+          "manager": "Vishal"
+         }
+        ]
+       },
+       {
+        "round": 7,
+        "picks": [
+         {
+          "pick": 1,
+          "player": "Jakobi Meyers",
+          "manager": "Vishal"
+         },
+         {
+          "pick": 2,
+          "player": "J.K. Dobbins",
+          "manager": "Phil"
+         },
+         {
+          "pick": 3,
+          "player": "Matthew Golden",
+          "manager": "Daanyal"
+         },
+         {
+          "pick": 4,
+          "player": "Jaxon Smith-Njigba",
+          "manager": "Shyam"
+         },
+         {
+          "pick": 5,
+          "player": "Brian Thomas Jr.",
+          "manager": "Sagar"
+         },
+         {
+          "pick": 6,
+          "player": "Tyrone Tracy Jr.",
+          "manager": "Kishan"
+         },
+         {
+          "pick": 7,
+          "player": "Jameson Williams",
+          "manager": "Andrew"
+         },
+         {
+          "pick": 8,
+          "player": "Travis Etienne Jr.",
+          "manager": "Devon"
+         },
+         {
+          "pick": 9,
+          "player": "Bo Nix",
+          "manager": "Josh"
+         },
+         {
+          "pick": 10,
+          "player": "Stefon Diggs",
+          "manager": "Kaleb"
+         },
+         {
+          "pick": 11,
+          "player": "Chris Olave",
+          "manager": "Fletch"
+         },
+         {
+          "pick": 12,
+          "player": "Tank Bigsby",
+          "manager": "Will"
+         }
+        ]
+       },
+       {
+        "round": 8,
+        "picks": [
+         {
+          "pick": 1,
+          "player": "Tyler Warren",
+          "manager": "Will"
+         },
+         {
+          "pick": 2,
+          "player": "Cam Skattebo",
+          "manager": "Fletch"
+         },
+         {
+          "pick": 3,
+          "player": "Rhamondre Stevenson",
+          "manager": "Kaleb"
+         },
+         {
+          "pick": 4,
+          "player": "Dak Prescott",
+          "manager": "Josh"
+         },
+         {
+          "pick": 5,
+          "player": "Khalil Shakir",
+          "manager": "Devon"
+         },
+         {
+          "pick": 6,
+          "player": "Tucker Kraft",
+          "manager": "Andrew"
+         },
+         {
+          "pick": 7,
+          "player": "Jordan Addison",
+          "manager": "Kishan"
+         },
+         {
+          "pick": 8,
+          "player": "Braelon Allen",
+          "manager": "Sagar"
+         },
+         {
+          "pick": 9,
+          "player": "Jordan Love",
+          "manager": "Shyam"
+         },
+         {
+          "pick": 10,
+          "player": "Ladd McConkey",
+          "manager": "Daanyal"
+         },
+         {
+          "pick": 11,
+          "player": "Deebo Samuel",
+          "manager": "Phil"
+         },
+         {
+          "pick": 12,
+          "player": "Keon Coleman",
+          "manager": "Vishal"
+         }
+        ]
+       },
+       {
+        "round": 9,
+        "picks": [
+         {
+          "pick": 1,
+          "player": "Javonte Williams",
+          "manager": "Vishal"
+         },
+         {
+          "pick": 2,
+          "player": "Evan Engram",
+          "manager": "Phil"
+         },
+         {
+          "pick": 3,
+          "player": "Michael Pittman Jr.",
+          "manager": "Daanyal"
+         },
+         {
+          "pick": 4,
+          "player": "Chase Brown",
+          "manager": "Shyam"
+         },
+         {
+          "pick": 5,
+          "player": "Jauan Jennings",
+          "manager": "Sagar"
+         },
+         {
+          "pick": 6,
+          "player": "Nick Chubb",
+          "manager": "Fletch"
+         },
+         {
+          "pick": 7,
+          "player": "Kyler Murray",
+          "manager": "Andrew"
+         },
+         {
+          "pick": 8,
+          "player": "Josh Downs",
+          "manager": "Devon"
+         },
+         {
+          "pick": 9,
+          "player": "Chris Godwin Jr.",
+          "manager": "Josh"
+         },
+         {
+          "pick": 10,
+          "player": "Justin Herbert",
+          "manager": "Kaleb"
+         },
+         {
+          "pick": 11,
+          "player": "Brock Bowers",
+          "manager": "Fletch"
+         },
+         {
+          "pick": 12,
+          "player": "Cooper Kupp",
+          "manager": "Will"
+         }
+        ]
+       },
+       {
+        "round": 10,
+        "picks": [
+         {
+          "pick": 1,
+          "player": "Brandon Aubrey",
+          "manager": "Will"
+         },
+         {
+          "pick": 2,
+          "player": "Cam Ward",
+          "manager": "Fletch"
+         },
+         {
+          "pick": 3,
+          "player": "Austin Ekeler",
+          "manager": "Kaleb"
+         },
+         {
+          "pick": 4,
+          "player": "Broncos",
+          "manager": "Josh"
+         },
+         {
+          "pick": 5,
+          "player": "Dylan Sampson",
+          "manager": "Devon"
+         },
+         {
+          "pick": 6,
+          "player": "Christian Kirk",
+          "manager": "Andrew"
+         },
+         {
+          "pick": 7,
+          "player": "Chuba Hubbard",
+          "manager": "Kishan"
+         },
+         {
+          "pick": 8,
+          "player": "Steelers",
+          "manager": "Will"
+         },
+         {
+          "pick": 9,
+          "player": "David Njoku",
+          "manager": "Shyam"
+         },
+         {
+          "pick": 10,
+          "player": "Will Shipley",
+          "manager": "Daanyal"
+         },
+         {
+          "pick": 11,
+          "player": "Cameron Dicker",
+          "manager": "Phil"
+         },
+         {
+          "pick": 12,
+          "player": "Jake Bates",
+          "manager": "Vishal"
+         }
+        ]
+       },
+       {
+        "round": 11,
+        "picks": [
+         {
+          "pick": 1,
+          "player": "Brock Purdy",
+          "manager": "Vishal"
+         },
+         {
+          "pick": 2,
+          "player": "Eagles",
+          "manager": "Phil"
+         },
+         {
+          "pick": 3,
+          "player": "Ravens",
+          "manager": "Daanyal"
+         },
+         {
+          "pick": 4,
+          "player": "Bills",
+          "manager": "Fletch"
+         },
+         {
+          "pick": 5,
+          "player": "Caleb Williams",
+          "manager": "Sagar"
+         },
+         {
+          "pick": 6,
+          "player": "Dallas Goedert",
+          "manager": "Kishan"
+         },
+         {
+          "pick": 7,
+          "player": "Keenan Allen",
+          "manager": "Andrew"
+         },
+         {
+          "pick": 8,
+          "player": "C.J. Stroud",
+          "manager": "Devon"
+         },
+         {
+          "pick": 9,
+          "player": "Jayden Reed",
+          "manager": "Josh"
+         },
+         {
+          "pick": 10,
+          "player": "Quinshon Judkins",
+          "manager": "Kaleb"
+         },
+         {
+          "pick": 11,
+          "player": "Cam Little",
+          "manager": "Fletch"
+         },
+         {
+          "pick": 12,
+          "player": "Jayden Daniels",
+          "manager": "Will"
+         }
+        ]
+       },
+       {
+        "round": 12,
+        "picks": [
+         {
+          "pick": 1,
+          "player": "Bucky Irving",
+          "manager": "Will"
+         },
+         {
+          "pick": 2,
+          "player": "Jerry Jeudy",
+          "manager": "Fletch"
+         },
+         {
+          "pick": 3,
+          "player": "Darnell Mooney",
+          "manager": "Kaleb"
+         },
+         {
+          "pick": 4,
+          "player": "Bhayshul Tuten",
+          "manager": "Josh"
+         },
+         {
+          "pick": 5,
+          "player": "Trey Benson",
+          "manager": "Devon"
+         },
+         {
+          "pick": 6,
+          "player": "Jaydon Blue",
+          "manager": "Andrew"
+         },
+         {
+          "pick": 7,
+          "player": "Drake Maye",
+          "manager": "Kishan"
+         },
+         {
+          "pick": 8,
+          "player": "Rico Dowdle",
+          "manager": "Sagar"
+         },
+         {
+          "pick": 9,
+          "player": "Colston Loveland",
+          "manager": "Shyam"
+         },
+         {
+          "pick": 10,
+          "player": "Jared Goff",
+          "manager": "Daanyal"
+         },
+         {
+          "pick": 11,
+          "player": "Jalen Coker",
+          "manager": "Phil"
+         },
+         {
+          "pick": 12,
+          "player": "Rashid Shaheed",
+          "manager": "Vishal"
+         }
+        ]
+       },
+       {
+        "round": 13,
+        "picks": [
+         {
+          "pick": 1,
+          "player": "Kyle Pitts Sr.",
+          "manager": "Vishal"
+         },
+         {
+          "pick": 2,
+          "player": "Kareem Hunt",
+          "manager": "Phil"
+         },
+         {
+          "pick": 3,
+          "player": "Jordan Mason",
+          "manager": "Daanyal"
+         },
+         {
+          "pick": 4,
+          "player": "Texans",
+          "manager": "Shyam"
+         },
+         {
+          "pick": 5,
+          "player": "Jayden Higgins",
+          "manager": "Sagar"
+         },
+         {
+          "pick": 6,
+          "player": "Lions",
+          "manager": "Kishan"
+         },
+         {
+          "pick": 7,
+          "player": "Vikings",
+          "manager": "Andrew"
+         },
+         {
+          "pick": 8,
+          "player": "Tyler Bass",
+          "manager": "Devon"
+         },
+         {
+          "pick": 9,
+          "player": "(no pick)",
+          "manager": "Josh"
+         },
+         {
+          "pick": 10,
+          "player": "Justin Fields",
+          "manager": "Kaleb"
+         },
+         {
+          "pick": 11,
+          "player": "J.J. McCarthy",
+          "manager": "Shyam"
+         },
+         {
+          "pick": 12,
+          "player": "Luther Burden III",
+          "manager": "Sagar"
+         }
+        ]
+       },
+       {
+        "round": 14,
+        "picks": [
+         {
+          "pick": 1,
+          "player": "Chris Boswell",
+          "manager": "Andrew"
+         },
+         {
+          "pick": 2,
+          "player": "Ka'imi Fairbairn",
+          "manager": "Kishan"
+         },
+         {
+          "pick": 3,
+          "player": "Chiefs",
+          "manager": "Kaleb"
+         },
+         {
+          "pick": 4,
+          "player": "Rashod Bateman",
+          "manager": "Josh"
+         },
+         {
+          "pick": 5,
+          "player": "49ers",
+          "manager": "Devon"
+         },
+         {
+          "pick": 6,
+          "player": "Rachaad White",
+          "manager": "Andrew"
+         },
+         {
+          "pick": 7,
+          "player": "Hollywood Brown",
+          "manager": "Kishan"
+         },
+         {
+          "pick": 8,
+          "player": "Chris Rodriguez Jr.",
+          "manager": "Sagar"
+         },
+         {
+          "pick": 9,
+          "player": "Tyjae Spears",
+          "manager": "Shyam"
+         },
+         {
+          "pick": 10,
+          "player": "Najee Harris",
+          "manager": "Shyam"
+         },
+         {
+          "pick": 11,
+          "player": "Kyle Williams",
+          "manager": "Phil"
+         },
+         {
+          "pick": 12,
+          "player": "Chargers",
+          "manager": "Vishal"
+         }
+        ]
+       },
+       {
+        "round": 15,
+        "picks": [
+         {
+          "pick": 1,
+          "player": "Kyle Juszczyk",
+          "manager": "Phil"
+         },
+         {
+          "pick": 2,
+          "player": "Bryce Young",
+          "manager": "Phil"
+         },
+         {
+          "pick": 3,
+          "player": "DeAndre Hopkins",
+          "manager": "Phil"
+         },
+         {
+          "pick": 4,
+          "player": "Wil Lutz",
+          "manager": "Shyam"
+         },
+         {
+          "pick": 5,
+          "player": "Chase McLaughlin",
+          "manager": "Sagar"
+         },
+         {
+          "pick": 6,
+          "player": "Ray Davis",
+          "manager": "Kishan"
+         },
+         {
+          "pick": 7,
+          "player": "Jerome Ford",
+          "manager": "Kishan"
+         },
+         {
+          "pick": 8,
+          "player": "Harrison Butker",
+          "manager": "Daanyal"
+         },
+         {
+          "pick": 9,
+          "player": "Evan McPherson",
+          "manager": "Josh"
+         },
+         {
+          "pick": 10,
+          "player": "Jake Elliott",
+          "manager": "Kaleb"
+         },
+         {
+          "pick": 11,
+          "player": "Seahawks",
+          "manager": "Sagar"
+         },
+         {
+          "pick": 12,
+          "player": "Pat Bryant",
+          "manager": "Josh"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "keepers",
+      "label": "Keepers",
+      "note": "Players retained for the 2025 season. Round shown is where they were originally drafted in 2024.",
+      "keepers": [
+       {
+        "manager": "Sagar",
+        "players": [
+         {
+          "player": "Brian Thomas Jr.",
+          "round": 8
+         }
+        ]
+       },
+       {
+        "manager": "Will",
+        "players": [
+         {
+          "player": "Jayden Daniels",
+          "round": 12
+         },
+         {
+          "player": "Bucky Irving",
+          "round": 14
+         }
+        ]
+       },
+       {
+        "manager": "Josh",
+        "players": [
+         {
+          "player": "Adam Thielen",
+          "round": 14,
+          "acquired": "Kishan"
+         },
+         {
+          "player": "Xavier Worthy",
+          "round": 7
+         }
+        ]
+       },
+       {
+        "manager": "Kaleb",
+        "players": []
+       },
+       {
+        "manager": "Phil",
+        "players": []
+       },
+       {
+        "manager": "Kishan",
+        "players": [
+         {
+          "player": "Tee Higgins",
+          "round": 6
+         },
+         {
+          "player": "Chuba Hubbard",
+          "round": 11
+         }
+        ]
+       },
+       {
+        "manager": "Shyam",
+        "players": [
+         {
+          "player": "Chase Brown",
+          "round": 10
+         },
+         {
+          "player": "Jaxon Smith-Njigba",
+          "round": 8
+         }
+        ]
+       },
+       {
+        "manager": "Devon",
+        "players": [
+         {
+          "player": "Joe Burrow",
+          "round": 6
+         }
+        ]
+       },
+       {
+        "manager": "Fletch",
+        "players": [
+         {
+          "player": "Jerry Jeudy",
+          "round": 14,
+          "acquired": "Daanyal"
+         },
+         {
+          "player": "Brock Bowers",
+          "round": 10
+         }
+        ]
+       },
+       {
+        "manager": "Vishal",
+        "players": [
+         {
+          "player": "Brock Purdy",
+          "round": 12
+         }
+        ]
+       },
+       {
+        "manager": "Andrew",
+        "players": [
+         {
+          "player": "Jameson Williams",
+          "round": 8
+         }
+        ]
+       },
+       {
+        "manager": "Daanyal",
+        "players": [
+         {
+          "player": "Ladd McConkey",
+          "round": 9
+         },
+         {
+          "player": "Jordan Mason",
+          "round": 14,
+          "acquired": "Andrew"
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ }
 }

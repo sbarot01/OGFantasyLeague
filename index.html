@@ -65,28 +65,23 @@
   <!-- HISTORY -->
   <section id="panel-history" class="panel-view">
     <h2 class="section-title">League History</h2>
-    <div class="subtabbar">
-      <button class="subtab-btn active" data-subtab="hist-draftorder">2025 Draft Order</button>
-      <button class="subtab-btn" data-subtab="hist-pickcount">2025 Pick Count</button>
-      <button class="subtab-btn" data-subtab="hist-keepers">2024 Keepers</button>
+
+    <div class="year-chips" id="year-chips"></div>
+
+    <div class="view-select-wrap">
+      <label class="view-select-label" for="view-select">View</label>
+      <select id="view-select" class="view-select"></select>
     </div>
 
-    <div id="hist-draftorder" class="subpanel active">
-      <div class="note-box" id="draftorder-note"></div>
-      <div class="order-list" id="draftorder-list"></div>
-    </div>
+    <div class="note-box" id="history-note"></div>
 
-    <div id="hist-pickcount" class="subpanel">
-      <div class="note-box" id="pickcount-note"></div>
-      <div class="scroll-hint">← swipe the table sideways to see all 15 rounds →</div>
-      <div class="table-wrap">
-        <table class="pickcount" id="pickcount-table"></table>
-      </div>
+    <div class="draft-search-bar" id="history-search-wrap">
+      <input type="text" id="history-search" placeholder="Search player or manager..."
+             autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
     </div>
+    <div class="summary-line" id="history-summary"></div>
 
-    <div id="hist-keepers" class="subpanel">
-      <div class="keeper-grid" id="keepers-grid"></div>
-    </div>
+    <div id="history-content"></div>
   </section>
 
   <!-- TROPHY ROOM -->

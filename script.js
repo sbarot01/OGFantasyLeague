@@ -9,15 +9,6 @@ document.querySelectorAll('.tab-btn').forEach(btn => {
   });
 });
 
-document.querySelectorAll('.subtab-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.subtab-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    document.querySelectorAll('.subpanel').forEach(p => p.classList.remove('active'));
-    document.getElementById(btn.dataset.subtab).classList.add('active');
-  });
-});
-
 // ---------- Helpers ----------
 function el(tag, opts = {}, ...children) {
   const node = document.createElement(tag);
@@ -143,56 +134,142 @@ function applyDraftFilter(rawTerm) {
 
 document.getElementById('draft-search').addEventListener('input', (e) => applyDraftFilter(e.target.value));
 
-// ---------- History: draft order ----------
-function renderHistoryDraftOrder(history) {
-  document.getElementById('draftorder-note').textContent = history.note;
-  const list = document.getElementById('draftorder-list');
-  list.innerHTML = '';
-  history.draftOrder.forEach(row => {
-    const rowEl = el('div', { class: 'order-row' },
-      el('span', { class: 'order-pos' }, String(row.pick).padStart(2, '0')),
-      el('span', { class: 'order-name' }, row.manager)
-    );
-    if (row.note) rowEl.appendChild(el('span', { class: 'order-note' }, '\u2014 ' + row.note));
-    list.appendChild(rowEl);
+// ---------- History: year chips + view dropdown ----------
+let historyData = null;
+let activeYear = null;
+let activeView = null;
+
+function renderHistoryChips(history) {
+  historyData = history;
+  const chipWrap = document.getElementById('year-chips');
+  chipWrap.innerHTML = '';
+  history.years.forEach(y => {
+    const chip = el('button', { class: 'year-chip', type: 'button' }, y.year);
+    chip.addEventListener('click', () => selectYear(y.year));
+    chipWrap.appendChild(chip);
   });
+  selectYear(history.years[history.years.length - 1].year);
 }
 
-function renderPickCount(pc) {
-  document.getElementById('pickcount-note').textContent = pc.note;
-  const table = document.getElementById('pickcount-table');
-  table.innerHTML = '';
-  const thead = el('thead');
-  const headRow = el('tr');
-  headRow.appendChild(el('th', {}, 'Team'));
-  for (let r = 1; r <= pc.rounds; r++) headRow.appendChild(el('th', {}, String(r)));
-  thead.appendChild(headRow);
-  table.appendChild(thead);
+function selectYear(year) {
+  activeYear = year;
+  const yearObj = historyData.years.find(y => y.year === year);
 
-  const tbody = el('tbody');
-  pc.teams.forEach(t => {
-    const row = el('tr');
-    row.appendChild(el('td', {}, t.team));
-    t.picks.forEach(p => row.appendChild(el('td', {}, String(p))));
-    tbody.appendChild(row);
+  document.querySelectorAll('.year-chip').forEach(c => {
+    c.classList.toggle('active', c.textContent === year);
   });
-  table.appendChild(tbody);
+
+  const sel = document.getElementById('view-select');
+  sel.innerHTML = '';
+  yearObj.views.forEach(v => {
+    sel.appendChild(el('option', { value: v.id }, v.label));
+  });
+
+  // A single-view year doesn't need a dropdown
+  document.querySelector('.view-select-wrap').style.display =
+    yearObj.views.length > 1 ? 'flex' : 'none';
+
+  selectView(yearObj.views[0].id);
 }
 
-function renderKeepers(keepers) {
-  const grid = document.getElementById('keepers-grid');
-  grid.innerHTML = '';
-  keepers.forEach(k => {
-    const card = el('div', { class: 'keeper-card' });
-    card.appendChild(el('h4', {}, k.manager));
-    if (k.players.length) {
-      card.appendChild(renderList(k.players));
-    } else {
-      card.appendChild(el('div', { class: 'none' }, 'No keepers'));
-    }
-    grid.appendChild(card);
-  });
+function selectView(viewId) {
+  activeView = viewId;
+  document.getElementById('view-select').value = viewId;
+  const yearObj = historyData.years.find(y => y.year === activeYear);
+  const view = yearObj.views.find(v => v.id === viewId);
+
+  document.getElementById('history-note').textContent = view.note || '';
+  const searchInput = document.getElementById('history-search');
+  searchInput.value = '';
+  document.getElementById('history-summary').textContent = '';
+
+  const isDraft = !!view.rounds;
+  document.getElementById('history-search-wrap').style.display = isDraft ? 'block' : 'none';
+  searchInput.placeholder = 'Search player or manager...';
+
+  const wrap = document.getElementById('history-content');
+  wrap.innerHTML = '';
+
+  if (isDraft) {
+    wrap.className = 'draft-rounds';
+    view.rounds.forEach(round => {
+      const card = el('div', { class: 'round-card' });
+      card.appendChild(el('div', { class: 'round-card-head' },
+        el('span', { class: 'round-badge' }, 'ROUND ' + round.round),
+        el('span', { class: 'round-card-meta' }, activeYear)
+      ));
+      const list = el('div', { class: 'result-list' });
+      round.picks.forEach(p => {
+        list.appendChild(el('div', {
+          class: 'result-row',
+          'data-search': (p.player + ' ' + p.manager).toLowerCase()
+        },
+          el('span', { class: 'result-slot' }, round.round + '.' + String(p.pick).padStart(2, '0')),
+          el('span', { class: 'result-player' }, p.player),
+          el('span', { class: 'result-manager' }, p.manager)
+        ));
+      });
+      card.appendChild(list);
+      wrap.appendChild(card);
+    });
+  } else {
+    wrap.className = 'keeper-grid';
+    view.keepers.forEach(k => {
+      const card = el('div', { class: 'keeper-card' });
+      card.appendChild(el('h4', {}, k.manager));
+      if (k.players.length) {
+        const ul = el('ul');
+        k.players.forEach(p => {
+          const li = el('li', {},
+            p.player + (p.round ? ' (Rd ' + p.round + ')' : '')
+          );
+          if (p.acquired) {
+            li.appendChild(el('span', { class: 'acq-note' }, ' \u2014 drafted by ' + p.acquired));
+          }
+          ul.appendChild(li);
+        });
+        card.appendChild(ul);
+      } else {
+        card.appendChild(el('div', { class: 'none' }, 'No keepers'));
+      }
+      wrap.appendChild(card);
+    });
+  }
 }
+
+document.getElementById('view-select').addEventListener('change', e => selectView(e.target.value));
+
+document.getElementById('history-search').addEventListener('input', e => {
+  const term = e.target.value.trim().toLowerCase();
+  const wrap = document.getElementById('history-content');
+  const rows = wrap.querySelectorAll('.result-row');
+  const summary = document.getElementById('history-summary');
+
+  if (!term) {
+    rows.forEach(r => r.classList.remove('hidden', 'match'));
+    wrap.querySelectorAll('.round-card').forEach(c => c.classList.remove('hidden'));
+    summary.textContent = '';
+    return;
+  }
+
+  let count = 0;
+  rows.forEach(r => {
+    const hit = r.dataset.search.includes(term);
+    r.classList.toggle('hidden', !hit);
+    r.classList.toggle('match', hit);
+    if (hit) count++;
+  });
+
+  // hide rounds with no surviving rows
+  wrap.querySelectorAll('.round-card').forEach(card => {
+    const visible = card.querySelectorAll('.result-row:not(.hidden)').length;
+    card.classList.toggle('hidden', visible === 0);
+  });
+
+  summary.textContent = count
+    ? count + ' pick' + (count === 1 ? '' : 's') + ' matching "' + e.target.value.trim() + '"'
+    : 'No picks match "' + e.target.value.trim() + '"';
+});
 
 // ---------- Load data ----------
 fetch('data.json')
@@ -200,9 +277,7 @@ fetch('data.json')
   .then(data => {
     renderSeason2026(data.season2026);
     renderRules(data.rules);
-    renderHistoryDraftOrder(data.history2025);
-    renderPickCount(data.history2025.pickCount);
-    renderKeepers(data.history2025.keepers);
+    renderHistoryChips(data.history);
   })
   .catch(err => {
     console.error('Failed to load data.json', err);

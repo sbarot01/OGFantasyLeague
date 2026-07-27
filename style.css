@@ -124,8 +124,8 @@ a { color: var(--blue); }
   color: #06090c;
 }
 
-.tab-btn:focus-visible, .subtab-btn:focus-visible,
-button:focus-visible, input:focus-visible {
+.tab-btn:focus-visible, .year-chip:focus-visible,
+button:focus-visible, input:focus-visible, select:focus-visible {
   outline: 2px solid var(--silver);
   outline-offset: 2px;
 }
@@ -192,42 +192,6 @@ main {
   color: var(--text-dim);
   margin-bottom: 16px;
 }
-
-/* ---------- Sub-tabs ---------- */
-.subtabbar {
-  display: flex;
-  gap: 7px;
-  margin-bottom: 16px;
-  overflow-x: auto;
-  scrollbar-width: none;
-  -webkit-overflow-scrolling: touch;
-  padding-bottom: 2px;
-}
-
-.subtabbar::-webkit-scrollbar { display: none; }
-
-.subtab-btn {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 12.5px;
-  background: transparent;
-  border: 1px solid var(--border);
-  color: var(--text-dim);
-  padding: 8px 14px;
-  border-radius: 8px;
-  cursor: pointer;
-  white-space: nowrap;
-  flex-shrink: 0;
-  min-height: 36px;
-}
-
-.subtab-btn.active {
-  border-color: var(--silver);
-  color: var(--silver);
-  background: rgba(165,172,175,0.10);
-}
-
-.subpanel { display: none; }
-.subpanel.active { display: block; animation: fade 0.2s ease; }
 
 /* ---------- Draft search ---------- */
 .draft-search-bar { margin-bottom: 10px; }
@@ -371,96 +335,120 @@ main {
 
 .draft-rounds.filtering .pick-cell.match .pick-slot { color: var(--blue); }
 
-/* ---------- 2025 draft order list ---------- */
-.order-list {
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-
-.order-row {
+/* ---------- History: year chips + view select ---------- */
+.year-chips {
   display: flex;
-  align-items: center;
-  gap: 14px;
-  padding: 13px 15px;
-  background: var(--panel);
-  border-bottom: 1px solid var(--border);
+  gap: 8px;
+  margin-bottom: 14px;
   flex-wrap: wrap;
 }
 
-.order-row:last-child { border-bottom: none; }
-.order-row:nth-child(even) { background: var(--panel-alt); }
-
-.order-pos {
-  font-family: 'IBM Plex Mono', monospace;
+.year-chip {
+  font-family: 'Oswald', sans-serif;
+  font-size: 15px;
   font-weight: 600;
-  color: var(--blue);
-  width: 26px;
+  letter-spacing: 0.04em;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  color: var(--text-dim);
+  padding: 9px 20px;
+  border-radius: 999px;
+  cursor: pointer;
+  min-height: 40px;
+}
+
+.year-chip.active {
+  background: var(--blue);
+  border-color: var(--blue);
+  color: #06090c;
+}
+
+.view-select-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.view-select-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-faint);
   flex-shrink: 0;
 }
 
-.order-name { font-weight: 600; font-size: 15px; }
+.view-select {
+  flex: 1;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 11px 14px;
+  min-height: 46px;
+  -webkit-appearance: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230085ca' stroke-width='3' stroke-linecap='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 13px center;
+  background-size: 17px;
+  padding-right: 40px;
+}
 
-.order-note {
+.view-select:focus { border-color: var(--blue); outline: none; }
+
+/* ---------- Draft result rows ---------- */
+.result-list { padding: 6px 0; }
+
+.result-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 14px;
+  border-bottom: 1px solid rgba(42,52,60,0.55);
+}
+
+.result-row:last-child { border-bottom: none; }
+
+.result-row.hidden { display: none; }
+.round-card.hidden { display: none; }
+
+.result-row.match { background: rgba(0,133,202,0.10); }
+
+.result-slot {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  color: var(--text-faint);
+  width: 38px;
+  flex-shrink: 0;
+}
+
+.result-player {
+  font-size: 14.5px;
+  font-weight: 600;
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.result-manager {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  color: var(--blue);
+  flex-shrink: 0;
+}
+
+.acq-note {
   font-size: 11.5px;
   color: var(--text-faint);
   font-style: italic;
-  width: 100%;
-  padding-left: 40px;
 }
-
-/* ---------- Pick count table ---------- */
-.scroll-hint {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 11.5px;
-  color: var(--text-faint);
-  margin-bottom: 8px;
-}
-
-.table-wrap {
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-}
-
-table.pickcount {
-  border-collapse: collapse;
-  width: 100%;
-  min-width: 640px;
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 12.5px;
-}
-
-table.pickcount th, table.pickcount td {
-  padding: 8px 9px;
-  text-align: center;
-  border-bottom: 1px solid var(--border);
-  border-right: 1px solid var(--border);
-}
-
-table.pickcount th:first-child, table.pickcount td:first-child {
-  text-align: left;
-  font-family: 'Inter', sans-serif;
-  font-weight: 600;
-  font-size: 12.5px;
-  position: sticky;
-  left: 0;
-  background: var(--panel);
-  min-width: 150px;
-  z-index: 2;
-}
-
-table.pickcount thead th {
-  background: var(--panel-alt);
-  color: var(--blue);
-  font-weight: 600;
-}
-
-table.pickcount thead th:first-child { background: var(--panel-alt); z-index: 3; }
-table.pickcount tbody tr:nth-child(even) td,
-table.pickcount tbody tr:nth-child(even) td:first-child { background: var(--panel-alt); }
-table.pickcount td { color: var(--text-dim); }
 
 /* ---------- Keepers ---------- */
 .keeper-grid {
@@ -568,6 +556,5 @@ footer {
   .section-title { font-size: 22px; }
   .pick-grid { grid-template-columns: repeat(6, 1fr); }
   .keeper-grid { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
-  .scroll-hint { display: none; }
   .status-screen { padding: 70px 20px; }
 }
