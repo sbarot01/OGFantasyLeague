@@ -271,6 +271,183 @@ document.getElementById('history-search').addEventListener('input', e => {
     : 'No picks match "' + e.target.value.trim() + '"';
 });
 
+// ---------- 2026 Keepers: Google Sheet CSV + auto round-cost calc ----------
+const KEEPERS_SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTg4yWD1olEa1VADq4Pm_P9EVQPEdVux5zl_Qnti2QFnD-91nMi61x9Dr-mAEycGNRiJqv9jh30ZoiV/pub?gid=0&single=true&output=csv";
+
+let keeperLookup = null; // built once from data.json history
+
+// Normalize a name for fuzzy matching: lowercase, strip punctuation,
+// drop suffixes (jr/sr/ii/iii/iv), collapse whitespace.
+function normalizeNameTokens(name) {
+  const SUFFIXES = new Set(["jr","sr","ii","iii","iv","v"]);
+  const cleaned = name
+    .toLowerCase()
+    .replace(/['\u2019]/g, '')     // strip apostrophes: Ja'Marr -> jamarr
+    .replace(/-/g, ' ')             // hyphens -> space: Amon-Ra -> amon ra
+    .replace(/\./g, '')            // periods removed (not spaced): A.J. -> aj, matches typed "AJ"
+    .replace(/[^a-z0-9\s]/g, '')   // strip anything else weird
+    .trim()
+    .split(/\s+/)
+    .filter(Boolean);
+  while (cleaned.length > 1 && SUFFIXES.has(cleaned[cleaned.length - 1])) {
+    cleaned.pop();
+  }
+  return cleaned;
+}
+
+// Build a lookup keyed by last-name token -> list of candidate records,
+// so fuzzy matching only has to compare within same-last-name buckets.
+function buildKeeperLookup(history) {
+  const keptList = [];
+  const draftedList = [];
+
+  const y2025 = history.years.find(y => y.year === "2025");
+  if (y2025) {
+    const keeperView = y2025.views.find(v => v.id === "keepers");
+    if (keeperView) {
+      keeperView.keepers.forEach(k => {
+        k.players.forEach(p => {
+          keptList.push({ name: p.player, round: p.round, manager: k.manager });
+        });
+      });
+    }
+    const draftView = y2025.views.find(v => v.id === "draft");
+    if (draftView) {
+      draftView.rounds.forEach(r => {
+        r.picks.forEach(pk => {
+          draftedList.push({ name: pk.player, round: r.round, manager: pk.manager });
+        });
+      });
+    }
+  }
+
+  function indexByLastName(list) {
+    const idx = {};
+    list.forEach(rec => {
+      const tokens = normalizeNameTokens(rec.name);
+      if (!tokens.length) return;
+      const last = tokens[tokens.length - 1];
+      rec._tokens = tokens;
+      (idx[last] = idx[last] || []).push(rec);
+    });
+    return idx;
+  }
+
+  return {
+    keptByLast: indexByLastName(keptList),
+    draftedByLast: indexByLastName(draftedList)
+  };
+}
+
+// Find the best match for a typed name within a last-name-indexed bucket.
+// Requires exact last-name match + first-name prefix match (min 3 chars,
+// or exact if the typed first name is shorter than 3 chars).
+function fuzzyFind(indexByLast, inputName) {
+  const tokens = normalizeNameTokens(inputName);
+  if (!tokens.length) return null;
+  const last = tokens[tokens.length - 1];
+  const first = tokens[0];
+  const candidates = indexByLast[last];
+  if (!candidates) return null;
+
+  for (const rec of candidates) {
+    const cFirst = rec._tokens[0];
+    if (cFirst === first) return rec;                 // exact first name
+    const prefixLen = Math.min(first.length, cFirst.length, 3);
+    if (first.length >= 3 && cFirst.startsWith(first)) return rec;   // "ken" -> "kenneth"
+    if (cFirst.length >= 3 && first.startsWith(cFirst)) return rec;  // reverse case
+  }
+  return null; // last-name-only matches are deliberately NOT auto-resolved (too risky)
+}
+
+function computeKeeperCost(playerName) {
+  const { keptByLast, draftedByLast } = keeperLookup;
+
+  const keptMatch = fuzzyFind(keptByLast, playerName);
+  if (keptMatch) {
+    const base = keptMatch.round;
+    if (base <= 2) return { label: "Not eligible", detail: "Rd " + base + " originally \u2014 1st/2nd round picks can't be kept" };
+    return { label: "Costs Rd " + (base - 2), detail: "2nd yr keeper \u2014 matched \"" + keptMatch.name + "\", originally Rd " + base + " (2024)" };
+  }
+
+  const draftMatch = fuzzyFind(draftedByLast, playerName);
+  if (draftMatch) {
+    const base = draftMatch.round;
+    if (base <= 2) return { label: "Not eligible", detail: "Rd " + base + " in 2025 \u2014 1st/2nd round picks can't be kept" };
+    return { label: "Costs Rd " + (base - 1), detail: "Matched \"" + draftMatch.name + "\", drafted Rd " + base + " (2025)" };
+  }
+
+  return { label: "Costs Rd 8", detail: "No match in draft history \u2014 assumed waiver pickup (double-check spelling if this looks wrong)" };
+}
+
+function parseCsv(text) {
+  const lines = text.trim().split(/\r?\n/);
+  const rows = lines.map(line => {
+    // simple CSV split; handles quoted fields with commas
+    const cells = [];
+    let cur = '', inQuotes = false;
+    for (let i = 0; i < line.length; i++) {
+      const c = line[i];
+      if (c === '"') { inQuotes = !inQuotes; }
+      else if (c === ',' && !inQuotes) { cells.push(cur); cur = ''; }
+      else { cur += c; }
+    }
+    cells.push(cur);
+    return cells.map(c => c.trim());
+  });
+  return rows;
+}
+
+function renderKeepers2026(rows) {
+  const pending = document.getElementById('keepers2026-pending');
+  const grid = document.getElementById('keepers2026-grid');
+
+  // rows[0] is header: Manager, Player 1, Player 2
+  const dataRows = rows.slice(1).filter(r => r[0]);
+  const anyPicks = dataRows.some(r => (r[1] && r[1].trim()) || (r[2] && r[2].trim()));
+
+  if (!anyPicks) {
+    pending.style.display = 'block';
+    grid.style.display = 'none';
+    return;
+  }
+
+  pending.style.display = 'none';
+  grid.style.display = 'grid';
+  grid.innerHTML = '';
+
+  dataRows.forEach(r => {
+    const manager = r[0];
+    const players = [r[1], r[2]].filter(p => p && p.trim());
+    const card = el('div', { class: 'keeper-card' });
+    card.appendChild(el('h4', {}, manager));
+
+    if (players.length) {
+      const ul = el('ul');
+      players.forEach(p => {
+        const cost = computeKeeperCost(p);
+        const li = el('li', {}, p + ' \u2014 ' + cost.label);
+        li.appendChild(el('span', { class: 'acq-note' }, ' (' + cost.detail + ')'));
+        ul.appendChild(li);
+      });
+      card.appendChild(ul);
+    } else {
+      card.appendChild(el('div', { class: 'none' }, 'No keepers submitted yet'));
+    }
+    grid.appendChild(card);
+  });
+}
+
+function loadKeepers2026() {
+  if (!KEEPERS_SHEET_CSV_URL || KEEPERS_SHEET_CSV_URL.indexOf('PASTE_YOUR') === 0) {
+    return; // not configured yet, leave the static "pending" screen showing
+  }
+  fetch(KEEPERS_SHEET_CSV_URL)
+    .then(res => res.text())
+    .then(text => renderKeepers2026(parseCsv(text)))
+    .catch(err => console.error('Failed to load keepers sheet', err));
+}
+
 // ---------- Load data ----------
 fetch('data.json')
   .then(res => res.json())
@@ -278,6 +455,8 @@ fetch('data.json')
     renderSeason2026(data.season2026);
     renderRules(data.rules);
     renderHistoryChips(data.history);
+    keeperLookup = buildKeeperLookup(data.history);
+    loadKeepers2026();
   })
   .catch(err => {
     console.error('Failed to load data.json', err);

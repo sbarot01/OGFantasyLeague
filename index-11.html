@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#0a0d10">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="OG League">
+<title>OG League</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="masthead">
+  <div class="masthead-inner">
+    <div>
+      <div class="eyebrow">12-Team &middot; Keeper League</div>
+      <h1>OG <span>League</span></h1>
+    </div>
+    <div class="masthead-tag">Draft &middot; Keepers &middot; Rules &middot; History</div>
+  </div>
+</header>
+
+<nav class="tabbar" role="tablist" aria-label="League sections">
+  <button class="tab-btn active" data-tab="draft2026" role="tab" aria-selected="true">2026 Draft Order</button>
+  <button class="tab-btn" data-tab="keepers2026" role="tab" aria-selected="false">2026 Keepers</button>
+  <button class="tab-btn" data-tab="rules" role="tab" aria-selected="false">Rules</button>
+  <button class="tab-btn" data-tab="history" role="tab" aria-selected="false">History</button>
+  <button class="tab-btn" data-tab="trophy" role="tab" aria-selected="false">Trophy Room</button>
+</nav>
+
+<main>
+
+  <!-- 2026 DRAFT ORDER -->
+  <section id="panel-draft2026" class="panel-view active">
+    <h2 class="section-title">2026 Draft Order</h2>
+    <div class="note-box">15 rounds &middot; 12 picks per round. Search or tap a manager to highlight every pick they own.</div>
+
+    <div class="draft-search-bar">
+      <input type="text" id="draft-search" placeholder="Search a manager..."
+             autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+    </div>
+    <div class="draft-search-chips" id="manager-chips"></div>
+    <div class="summary-line" id="draft-summary"></div>
+
+    <div class="draft-rounds" id="draft-rounds"></div>
+  </section>
+
+  <!-- 2026 KEEPERS -->
+  <section id="panel-keepers2026" class="panel-view">
+    <h2 class="section-title">2026 Keepers</h2>
+    <div class="note-box">Finalize by August 25th. Change is permitted if your keeper is injured during the final week of the preseason.</div>
+    <div class="status-screen" id="keepers2026-pending">
+      <div class="emoji-row">⏳🔒⏳</div>
+      <h3>Pending Keepers</h3>
+      <p>Keeper selections aren't locked in yet. This page fills in once everyone submits before the deadline.</p>
+    </div>
+    <div class="keeper-grid" id="keepers2026-grid" style="display:none;"></div>
+  </section>
+
+  <!-- RULES -->
+  <section id="panel-rules" class="panel-view">
+    <div id="rules-content"></div>
+  </section>
+
+  <!-- HISTORY -->
+  <section id="panel-history" class="panel-view">
+    <h2 class="section-title">League History</h2>
+
+    <div class="year-chips" id="year-chips"></div>
+
+    <div class="view-select-wrap">
+      <label class="view-select-label" for="view-select">View</label>
+      <select id="view-select" class="view-select"></select>
+    </div>
+
+    <div class="note-box" id="history-note"></div>
+
+    <div class="draft-search-bar" id="history-search-wrap">
+      <input type="text" id="history-search" placeholder="Search player or manager..."
+             autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+    </div>
+    <div class="summary-line" id="history-summary"></div>
+
+    <div id="history-content"></div>
+  </section>
+
+  <!-- TROPHY ROOM -->
+  <section id="panel-trophy" class="panel-view">
+    <h2 class="section-title">Trophy Room</h2>
+    <div class="status-screen">
+      <div class="emoji-row">🚧🏗️🚧</div>
+      <h3>Under Construction</h3>
+      <p>Trophy Room, Last Place Wall of Shame, and Historical Performance are coming soon. Check back once the excavators clear out.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer>OG LEAGUE<br>built from a pile of Apple Notes and a torn sticky-note draft order</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
